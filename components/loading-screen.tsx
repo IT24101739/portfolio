@@ -40,6 +40,7 @@ export function LoadingScreen({ onComplete }: { onComplete?: () => void }) {
     setPhase("exiting");
     setTimeout(() => {
       setIsVisible(false);
+      window.scrollTo(0, 0);
       onComplete?.();
     }, 500);
   };
@@ -104,6 +105,7 @@ export function LoadingScreen({ onComplete }: { onComplete?: () => void }) {
     // 3.1s: Complete and unmount loading screen
     const timer4 = setTimeout(() => {
       setIsVisible(false);
+      window.scrollTo(0, 0);
       onComplete?.();
     }, 3100);
 

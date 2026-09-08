@@ -67,6 +67,10 @@ export function Footer() {
                     onClick={(e) => {
                       e.preventDefault();
                       const id = link.href.replace("#", "");
+                      if (id === "home") {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                        return;
+                      }
                       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
                     }}
                     className="text-xs transition-colors duration-200"
