@@ -130,7 +130,7 @@ function NeuralNetwork() {
 
       {/* Layer Labels */}
       <div
-        className="flex justify-between text-xs font-mono font-medium mt-4 px-2"
+        className="flex justify-between text-[10px] sm:text-xs font-mono font-medium mt-4 px-1 sm:px-2"
         style={{ color: "var(--color-text-muted)" }}
         aria-hidden="true"
       >
@@ -243,13 +243,13 @@ export function AIFocus() {
 
           {/* Left: Neural Network Visualizer (7 cols) */}
           <SectionReveal className="lg:col-span-7 h-full">
-            <div className="card-box relative overflow-hidden h-full flex flex-col justify-center">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--color-accent)]">
-                  <Sparkles size={14} />
+            <div className="card-box relative overflow-hidden h-full flex flex-col justify-center p-4 sm:p-6">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+                <div className="flex items-center gap-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-[var(--color-accent)]">
+                  <Sparkles size={14} className="shrink-0" />
                   <span>Neural Architecture Visualizer</span>
                 </div>
-                <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-[var(--color-accent-dim)] border border-[var(--color-border-accent)] text-[var(--color-accent)]">
+                <span className="text-[10px] sm:text-xs font-mono px-2.5 py-0.5 sm:py-1 rounded-full bg-[var(--color-accent-dim)] border border-[var(--color-border-accent)] text-[var(--color-accent)] whitespace-nowrap">
                   Simulated Feedforward
                 </span>
               </div>

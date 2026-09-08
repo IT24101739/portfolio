@@ -78,15 +78,13 @@ export function Certifications() {
             return (
               <SectionReveal key={cert.id} delay={i * 0.05} className="h-full">
                 <article
-                  className={`relative h-full flex flex-col justify-between transition-all duration-300 ${
+                  className={`relative h-full flex flex-col justify-between p-5 sm:p-6 transition-all duration-300 rounded-[20px] ${
                     isFeatured
                       ? "border border-[#39ff14]/80 shadow-[0_0_24px_rgba(57,255,20,0.18)]"
                       : "border border-neutral-800/80 hover:border-[#39ff14]/70 hover:shadow-[0_0_20px_rgba(57,255,20,0.15)]"
                   }`}
                   style={{
                     background: "#0c100c",
-                    padding: "26px 24px",
-                    borderRadius: "20px",
                   }}
                 >
                   <div>
