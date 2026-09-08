@@ -410,19 +410,19 @@ export function Hero() {
     <section
       id="home"
       aria-label="Hero section"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28"
+      className="relative min-h-screen flex flex-col justify-start lg:justify-center overflow-hidden pt-24 sm:pt-32 md:pt-36 pb-16 md:pb-24"
       style={{ background: "var(--color-bg-primary)" }}
     >
       <AIGrid />
 
-      <div className="section-container relative z-10 w-full">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div className="section-container relative z-10 w-full pt-2 sm:pt-4 lg:pt-0">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
           {/* ── Left: Text Content (7 cols) ── */}
           <div className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start">
 
             {/* Live Status Pill */}
-            <FadeUp delay={0} className="mb-5">
+            <FadeUp delay={0} className="mb-4 sm:mb-5">
               <div
                 className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border text-xs font-mono tracking-wide backdrop-blur-md"
                 style={{
@@ -456,7 +456,7 @@ export function Hero() {
               <h1
                 className="font-display font-bold leading-[1.06] tracking-tight text-center lg:text-left"
                 style={{
-                  fontSize: "clamp(2.8rem, 5.8vw, 4.6rem)",
+                  fontSize: "clamp(2.3rem, 5.8vw, 4.6rem)",
                   color: "var(--color-text-primary)",
                 }}
               >
@@ -499,14 +499,14 @@ export function Hero() {
 
             {/* ── Primary & Secondary Action Dock ── */}
             <FadeUp delay={0.4} className="w-full mb-10 sm:mb-12">
-              <div className="flex flex-wrap items-center gap-3.5 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row items-center gap-3.5 justify-center lg:justify-start w-full sm:w-auto">
                 <a
                   href="#projects"
                   onClick={(e) => {
                     e.preventDefault();
                     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="hero-action-btn group relative cursor-pointer"
+                  className="hero-action-btn group relative cursor-pointer w-full sm:w-auto max-w-[340px] sm:max-w-none"
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
@@ -536,7 +536,7 @@ export function Hero() {
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hero-action-btn group relative cursor-pointer"
+                  className="hero-action-btn group relative cursor-pointer w-full sm:w-auto max-w-[340px] sm:max-w-none"
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
@@ -580,7 +580,7 @@ export function Hero() {
                     href={personalInfo.gmailComposeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hero-action-btn group relative cursor-pointer"
+                    className="hero-action-btn group relative cursor-pointer w-full sm:w-auto max-w-[340px] sm:max-w-none"
                     style={{
                       display: "inline-flex",
                       alignItems: "center",

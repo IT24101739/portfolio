@@ -92,39 +92,39 @@ export function Navbar() {
         borderBottom: "1px solid var(--color-border)",
       }}
     >
-      <div className="w-full px-6 sm:px-8 lg:px-10 xl:px-12">
-        <div className="relative flex items-center justify-between h-[76px]">
+      <div className="w-full px-4 sm:px-8 lg:px-10 xl:px-12">
+        <div className="relative flex items-center justify-between h-[64px] sm:h-[76px]">
 
           {/* ═════════════════════════════════════════════════════════════════
               LEFT: Compact Logo + Name + Professional Subtitle
               ═════════════════════════════════════════════════════════════════ */}
           <button
             onClick={() => handleNavClick("#home")}
-            className="flex items-center gap-3 group cursor-pointer border-none bg-transparent p-0 text-left shrink-0 z-10"
+            className="flex items-center gap-2.5 sm:gap-3 group cursor-pointer border-none bg-transparent p-0 text-left shrink-0 z-10"
             aria-label="Go to top of page"
           >
             {/* Compact square logo with subtle green border & glow */}
             <div
-              className="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-200 group-hover:scale-105"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center transition-all duration-200 group-hover:scale-105"
               style={{
                 background: "var(--color-bg-card)",
                 border: "1px solid var(--color-border-strong)",
                 boxShadow: "0 0 10px rgba(57, 255, 20, 0.12)",
               }}
             >
-              <Cpu size={16} style={{ color: "var(--color-accent)" }} aria-hidden="true" />
+              <Cpu size={15} style={{ color: "var(--color-accent)" }} aria-hidden="true" />
             </div>
 
             {/* Name + Subtitle */}
             <div className="flex flex-col">
               <span
-                className="font-display font-bold text-[15px] sm:text-[16px] tracking-tight leading-tight transition-colors group-hover:text-[var(--color-accent)]"
+                className="font-display font-bold text-[14px] sm:text-[16px] tracking-tight leading-tight transition-colors group-hover:text-[var(--color-accent)]"
                 style={{ color: "var(--color-text-primary)" }}
               >
                 {personalInfo.name}
               </span>
               <span
-                className="font-mono text-[9px] sm:text-[10px] tracking-[0.14em] uppercase font-semibold mt-0.5 leading-none"
+                className="hidden sm:block font-mono text-[9px] sm:text-[10px] tracking-[0.14em] uppercase font-semibold mt-0.5 leading-none"
                 style={{
                   color: "var(--color-accent)",
                   opacity: 0.85,
