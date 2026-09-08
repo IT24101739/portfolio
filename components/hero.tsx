@@ -123,7 +123,7 @@ const pathItems = [
     icon: Brain,
     label: "AI & Machine Learning",
     shortLabel: "AI & ML",
-    pos: "top-0 left-1/2 -translate-x-1/2",
+    pos: "-top-3 sm:top-0 left-1/2 -translate-x-1/2",
     yAnim: [0, -6, 0],
     xAnim: [0, 0, 0],
     duration: 3.8,
@@ -133,7 +133,7 @@ const pathItems = [
     icon: Code2,
     label: "Full-Stack Development",
     shortLabel: "Full-Stack Dev",
-    pos: "top-[12%] left-0 sm:-left-3",
+    pos: "top-[14%] -left-1 sm:-left-3",
     yAnim: [0, 5, 0],
     xAnim: [0, -3, 0],
     duration: 4.2,
@@ -143,7 +143,7 @@ const pathItems = [
     icon: Network,
     label: "Deep Learning",
     shortLabel: "Deep Learning",
-    pos: "top-[12%] right-0 sm:-right-3",
+    pos: "top-[14%] -right-1 sm:-right-3",
     yAnim: [0, -5, 0],
     xAnim: [0, 3, 0],
     duration: 4,
@@ -153,7 +153,7 @@ const pathItems = [
     icon: GraduationCap,
     label: "SLIIT · AI Specialization",
     shortLabel: "SLIIT · AI Spec",
-    pos: "bottom-[10%] left-0 sm:-left-3",
+    pos: "bottom-[12%] -left-1 sm:-left-3",
     yAnim: [0, 6, 0],
     xAnim: [0, -3, 0],
     duration: 4.4,
@@ -163,7 +163,7 @@ const pathItems = [
     icon: Cpu,
     label: "Computer Vision & NLP",
     shortLabel: "CV & NLP",
-    pos: "bottom-[10%] right-0 sm:-right-3",
+    pos: "bottom-[12%] -right-1 sm:-right-3",
     yAnim: [0, -6, 0],
     xAnim: [0, 3, 0],
     duration: 3.9,
@@ -174,7 +174,7 @@ const pathItems = [
 /* ─── Profile Image Component with Animated Orbit ─── */
 function ProfileImage() {
   return (
-    <div className="relative w-[340px] h-[340px] sm:w-[410px] sm:h-[410px] lg:w-[450px] lg:h-[450px] mx-auto my-4 select-none flex items-center justify-center">
+    <div className="relative w-[290px] h-[290px] sm:w-[380px] sm:h-[380px] lg:w-[450px] lg:h-[450px] mx-auto my-6 sm:my-4 select-none flex items-center justify-center">
       {/* ─── Background Orbit Track (Outer Animated Dashed Ring) ─── */}
       <motion.div
         animate={{ rotate: 360 }}
@@ -197,7 +197,7 @@ function ProfileImage() {
       <motion.div
         animate={{ scale: [0.98, 1.04, 0.98], opacity: [0.25, 0.55, 0.25] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute inset-12 rounded-full pointer-events-none"
+        className="absolute inset-10 sm:inset-12 rounded-full pointer-events-none"
         style={{
           border: "1px solid rgba(57,255,20,0.2)",
           boxShadow: "0 0 35px rgba(57,255,20,0.12)",
@@ -218,7 +218,7 @@ function ProfileImage() {
       </svg>
 
       {/* ─── Center Photo Circle ─── */}
-      <div className="relative w-[210px] h-[210px] sm:w-[250px] sm:h-[250px] lg:w-[270px] lg:h-[270px] rounded-full">
+      <div className="relative w-[170px] h-[170px] sm:w-[230px] sm:h-[230px] lg:w-[270px] lg:h-[270px] rounded-full">
         {/* Outer subtle glow */}
         <div
           aria-hidden="true"
@@ -260,7 +260,7 @@ function ProfileImage() {
             alt="Maleesha Maddegoda - AI & ML Engineer and Full-Stack Developer"
             fill
             priority
-            sizes="(max-width: 768px) 210px, 270px"
+            sizes="(max-width: 640px) 170px, (max-width: 1024px) 230px, 270px"
             className="object-cover object-[center_20%]"
           />
         </div>
@@ -281,7 +281,7 @@ function ProfileImage() {
             delay: item.delay,
           }}
           whileHover={{ scale: 1.08, y: -4 }}
-          className={`absolute ${item.pos} z-20 flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-semibold shadow-2xl whitespace-nowrap backdrop-blur-md transition-all duration-300 cursor-default select-none`}
+          className={`absolute ${item.pos} z-20 flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3.5 py-1 sm:py-2 rounded-full text-[10px] sm:text-xs font-semibold shadow-2xl whitespace-nowrap backdrop-blur-md transition-all duration-300 cursor-default select-none`}
           style={{
             background: "rgba(10, 15, 10, 0.92)",
             border: "1px solid rgba(57, 255, 20, 0.45)",
@@ -302,7 +302,7 @@ function ProfileImage() {
           />
 
           <item.icon
-            size={14}
+            size={13}
             className="shrink-0"
             style={{
               color: "var(--color-accent)",
@@ -410,28 +410,28 @@ export function Hero() {
     <section
       id="home"
       aria-label="Hero section"
-      className="relative min-h-screen flex flex-col justify-start lg:justify-center overflow-hidden pt-24 sm:pt-32 md:pt-36 pb-16 md:pb-24"
+      className="relative min-h-[100dvh] flex flex-col justify-start lg:justify-center overflow-hidden pt-28 sm:pt-32 md:pt-36 pb-16 md:pb-24"
       style={{ background: "var(--color-bg-primary)" }}
     >
       <AIGrid />
 
-      <div className="section-container relative z-10 w-full pt-2 sm:pt-4 lg:pt-0">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+      <div className="section-container relative z-10 w-full pt-4 sm:pt-6 lg:pt-0">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
 
           {/* ── Left: Text Content (7 cols) ── */}
           <div className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start">
 
             {/* Live Status Pill */}
-            <FadeUp delay={0} className="mb-4 sm:mb-5">
+            <FadeUp delay={0} className="mb-3.5 sm:mb-5">
               <div
-                className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border text-xs font-mono tracking-wide backdrop-blur-md"
+                className="inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-3.5 py-1.5 rounded-full border text-[10px] sm:text-xs font-mono tracking-wide backdrop-blur-md"
                 style={{
                   background: "rgba(57, 255, 20, 0.05)",
                   borderColor: "rgba(57, 255, 20, 0.25)",
                   boxShadow: "0 0 20px rgba(57, 255, 20, 0.08)",
                 }}
               >
-                <span className="relative flex h-2 w-2">
+                <span className="relative flex h-2 w-2 shrink-0">
                   <span
                     className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
                     style={{ background: "var(--color-accent)" }}
@@ -441,22 +441,22 @@ export function Hero() {
                     style={{ background: "var(--color-accent)" }}
                   />
                 </span>
-                <span className="text-[11px] uppercase tracking-wider font-bold" style={{ color: "var(--color-accent)" }}>
+                <span className="uppercase tracking-wider font-bold" style={{ color: "var(--color-accent)" }}>
                   Aspiring AI &amp; ML Engineer
                 </span>
-                <span className="opacity-25" style={{ color: "var(--color-text-muted)" }}>|</span>
-                <span className="text-[11px] font-medium hidden sm:inline" style={{ color: "var(--color-text-secondary)" }}>
+                <span className="opacity-25 hidden sm:inline" style={{ color: "var(--color-text-muted)" }}>|</span>
+                <span className="font-medium hidden sm:inline" style={{ color: "var(--color-text-secondary)" }}>
                   SLIIT AI Specialization
                 </span>
               </div>
             </FadeUp>
 
             {/* Main Headline */}
-            <FadeUp delay={0.1} className="mb-4">
+            <FadeUp delay={0.1} className="mb-3 sm:mb-4">
               <h1
-                className="font-display font-bold leading-[1.06] tracking-tight text-center lg:text-left"
+                className="font-display font-bold leading-[1.08] tracking-tight text-center lg:text-left"
                 style={{
-                  fontSize: "clamp(2.3rem, 5.8vw, 4.6rem)",
+                  fontSize: "clamp(2.1rem, 6.5vw, 4.6rem)",
                   color: "var(--color-text-primary)",
                 }}
               >
@@ -466,20 +466,20 @@ export function Hero() {
             </FadeUp>
 
             {/* Animated Dynamic Role Badge / Terminal display */}
-            <FadeUp delay={0.2} className="mb-6 w-full flex justify-center lg:justify-start">
+            <FadeUp delay={0.2} className="mb-4 sm:mb-6 w-full flex justify-center lg:justify-start">
               <div
-                className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-xl border text-sm sm:text-base font-mono backdrop-blur-sm"
+                className="inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-3.5 py-1.5 rounded-xl border text-xs sm:text-base font-mono backdrop-blur-sm max-w-full"
                 style={{
                   background: "rgba(255, 255, 255, 0.025)",
                   borderColor: "rgba(255, 255, 255, 0.09)",
                 }}
               >
-                <Terminal size={15} style={{ color: "var(--color-accent)" }} aria-hidden="true" />
-                <span className="text-xs uppercase tracking-wider font-semibold" style={{ color: "var(--color-text-muted)" }}>
+                <Terminal size={14} className="shrink-0" style={{ color: "var(--color-accent)" }} aria-hidden="true" />
+                <span className="text-[11px] sm:text-xs uppercase tracking-wider font-semibold shrink-0" style={{ color: "var(--color-text-muted)" }}>
                   Focus:
                 </span>
                 <span
-                  className="font-semibold text-sm sm:text-base"
+                  className="font-semibold text-xs sm:text-base truncate"
                   style={{ color: "var(--color-text-primary)" }}
                   aria-label={`Specialization: ${personalInfo.titles.join(" and ")}`}
                 >
@@ -489,24 +489,24 @@ export function Hero() {
             </FadeUp>
 
             {/* Tagline / Bio Description */}
-            <FadeUp delay={0.3} className="mb-8">
+            <FadeUp delay={0.3} className="mb-6 sm:mb-8">
               <p
-                className="leading-relaxed max-w-xl text-base md:text-lg text-[var(--color-text-secondary)]"
+                className="leading-relaxed max-w-xl text-[14px] sm:text-base md:text-lg text-[var(--color-text-secondary)] px-2 sm:px-0"
               >
                 {personalInfo.tagline}
               </p>
             </FadeUp>
 
             {/* ── Primary & Secondary Action Dock ── */}
-            <FadeUp delay={0.4} className="w-full mb-10 sm:mb-12">
-              <div className="flex flex-col sm:flex-row items-center gap-3.5 justify-center lg:justify-start w-full sm:w-auto">
+            <FadeUp delay={0.4} className="w-full mb-8 sm:mb-12">
+              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-3.5 justify-center lg:justify-start w-full sm:w-auto">
                 <a
                   href="#projects"
                   onClick={(e) => {
                     e.preventDefault();
                     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="hero-action-btn group relative cursor-pointer w-full sm:w-auto max-w-[340px] sm:max-w-none"
+                  className="hero-action-btn group relative cursor-pointer w-full sm:w-auto max-w-[320px] sm:max-w-none"
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
@@ -536,7 +536,7 @@ export function Hero() {
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hero-action-btn group relative cursor-pointer w-full sm:w-auto max-w-[340px] sm:max-w-none"
+                  className="hero-action-btn group relative cursor-pointer w-full sm:w-auto max-w-[320px] sm:max-w-none"
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
@@ -580,7 +580,7 @@ export function Hero() {
                     href={personalInfo.gmailComposeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hero-action-btn group relative cursor-pointer w-full sm:w-auto max-w-[340px] sm:max-w-none"
+                    className="hero-action-btn group relative cursor-pointer w-full sm:w-auto max-w-[320px] sm:max-w-none"
                     style={{
                       display: "inline-flex",
                       alignItems: "center",

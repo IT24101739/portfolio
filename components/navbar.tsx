@@ -84,28 +84,31 @@ export function Navbar() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        background: isScrolled
-          ? "var(--color-bg-glass)"
-          : "transparent",
-        backdropFilter: isScrolled ? "blur(16px) saturate(180%)" : "none",
-        WebkitBackdropFilter: isScrolled ? "blur(16px) saturate(180%)" : "none",
-        borderBottom: "1px solid var(--color-border)",
+        background: "var(--color-bg-glass)",
+        backdropFilter: "blur(16px) saturate(180%)",
+        WebkitBackdropFilter: "blur(16px) saturate(180%)",
+        borderBottom: isScrolled
+          ? "1px solid var(--color-border-strong)"
+          : "1px solid var(--color-border)",
+        boxShadow: isScrolled
+          ? "0 4px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(57, 255, 20, 0.06)"
+          : "none",
       }}
     >
       <div className="w-full px-4 sm:px-8 lg:px-10 xl:px-12">
-        <div className="relative flex items-center justify-between h-[64px] sm:h-[76px]">
+        <div className="relative flex items-center justify-between h-[60px] sm:h-[72px] lg:h-[76px]">
 
           {/* ═════════════════════════════════════════════════════════════════
               LEFT: Compact Logo + Name + Professional Subtitle
               ═════════════════════════════════════════════════════════════════ */}
           <button
             onClick={() => handleNavClick("#home")}
-            className="flex items-center gap-2.5 sm:gap-3 group cursor-pointer border-none bg-transparent p-0 text-left shrink-0 z-10"
+            className="flex items-center gap-2.5 sm:gap-3 group cursor-pointer border-none bg-transparent p-0 text-left shrink-0 z-10 min-w-0"
             aria-label="Go to top of page"
           >
             {/* Compact square logo with subtle green border & glow */}
             <div
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center transition-all duration-200 group-hover:scale-105"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center transition-all duration-200 group-hover:scale-105 shrink-0"
               style={{
                 background: "var(--color-bg-card)",
                 border: "1px solid var(--color-border-strong)",
@@ -116,9 +119,9 @@ export function Navbar() {
             </div>
 
             {/* Name + Subtitle */}
-            <div className="flex flex-col">
+            <div className="flex flex-col min-w-0">
               <span
-                className="font-display font-bold text-[14px] sm:text-[16px] tracking-tight leading-tight transition-colors group-hover:text-[var(--color-accent)]"
+                className="font-display font-bold text-[14px] sm:text-[16px] tracking-tight leading-tight transition-colors group-hover:text-[var(--color-accent)] truncate"
                 style={{ color: "var(--color-text-primary)" }}
               >
                 {personalInfo.name}
