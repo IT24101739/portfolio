@@ -410,12 +410,12 @@ export function Hero() {
     <section
       id="home"
       aria-label="Hero section"
-      className="relative min-h-[calc(100dvh-60px)] lg:min-h-[calc(100dvh-76px)] block lg:flex lg:flex-col lg:justify-center overflow-x-hidden pt-6 sm:pt-10 lg:pt-14 pb-16 md:pb-24"
+      className="relative min-h-screen flex flex-col justify-start lg:justify-center overflow-x-hidden hero-section"
       style={{ background: "var(--color-bg-primary)" }}
     >
       <AIGrid />
 
-      <div className="section-container relative z-10 w-full pt-2 sm:pt-4 lg:pt-0">
+      <div className="section-container relative z-10 w-full pt-1 sm:pt-2 lg:pt-0">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start lg:items-center">
 
           {/* ── Left: Text Content (7 cols) ── */}
@@ -708,7 +708,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.2, ease: "easeOut" }}
-            className="lg:col-span-5 flex justify-center"
+            className="lg:col-span-5 flex justify-center pt-6 sm:pt-4 lg:pt-0"
           >
             <ProfileImage />
           </motion.div>

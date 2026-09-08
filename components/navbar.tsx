@@ -86,7 +86,7 @@ export function Navbar() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className="sticky top-0 z-50 w-full transition-all duration-300"
+      className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300"
       style={{
         background: "var(--color-bg-glass)",
         backdropFilter: "blur(16px) saturate(180%)",
