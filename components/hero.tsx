@@ -410,13 +410,13 @@ export function Hero() {
     <section
       id="home"
       aria-label="Hero section"
-      className="relative min-h-[100dvh] flex flex-col justify-start lg:justify-center overflow-hidden pt-24 sm:pt-28 md:pt-36 pb-16 md:pb-24"
+      className="relative min-h-[100dvh] block lg:flex lg:flex-col lg:justify-center overflow-x-hidden pt-24 sm:pt-28 md:pt-36 pb-16 md:pb-24"
       style={{ background: "var(--color-bg-primary)" }}
     >
       <AIGrid />
 
       <div className="section-container relative z-10 w-full pt-2 sm:pt-4 lg:pt-0">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start lg:items-center">
 
           {/* ── Left: Text Content (7 cols) ── */}
           <div className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start">
@@ -454,14 +454,14 @@ export function Hero() {
             {/* Main Headline */}
             <FadeUp delay={0.1} className="mb-3 sm:mb-4">
               <h1
-                className="font-display font-bold leading-[1.12] tracking-tight text-center lg:text-left"
+                className="font-display font-bold leading-[1.08] tracking-tight text-center lg:text-left"
                 style={{
-                  fontSize: "clamp(1.75rem, 5.8vw, 4.5rem)",
+                  fontSize: "clamp(2.2rem, 6.2vw, 4.6rem)",
                   color: "var(--color-text-primary)",
                 }}
               >
-                <span className="inline">Maleesha </span>
-                <span className="gradient-text inline">Maddegoda</span>
+                <span className="block sm:inline">Maleesha </span>
+                <span className="gradient-text block sm:inline">Maddegoda</span>
               </h1>
             </FadeUp>
 
