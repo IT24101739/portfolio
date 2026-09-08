@@ -410,7 +410,7 @@ export function Hero() {
     <section
       id="home"
       aria-label="Hero section"
-      className="relative min-h-[100dvh] block lg:flex lg:flex-col lg:justify-center overflow-x-hidden pt-24 sm:pt-28 md:pt-36 pb-16 md:pb-24"
+      className="relative min-h-[calc(100dvh-60px)] lg:min-h-[calc(100dvh-76px)] block lg:flex lg:flex-col lg:justify-center overflow-x-hidden pt-6 sm:pt-10 lg:pt-14 pb-16 md:pb-24"
       style={{ background: "var(--color-bg-primary)" }}
     >
       <AIGrid />

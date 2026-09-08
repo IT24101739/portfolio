@@ -14,20 +14,28 @@ import { ScrollProgress } from "@/components/scroll-progress";
 
 export default function Home() {
   return (
-    <main className="relative selection:bg-[var(--color-accent-dim)] selection:text-[var(--color-accent)]">
+    <div className="min-h-screen flex flex-col bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
       <LoadingScreen />
       <NeuralBackground />
       <ScrollProgress />
+
+      {/* ── HEADER ── */}
       <Navbar />
-      <Hero />
-      <About />
-      <AIFocus />
-      <Education />
-      <Skills />
-      <Projects />
-      <Certifications />
-      <Contact />
+
+      {/* ── BODY (MAIN CONTENT) ── */}
+      <main id="main-content" className="flex-1 relative selection:bg-[var(--color-accent-dim)] selection:text-[var(--color-accent)]">
+        <Hero />
+        <About />
+        <AIFocus />
+        <Education />
+        <Skills />
+        <Projects />
+        <Certifications />
+        <Contact />
+      </main>
+
+      {/* ── FOOTER ── */}
       <Footer />
-    </main>
+    </div>
   );
 }
