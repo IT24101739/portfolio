@@ -8,9 +8,6 @@ import {
   Server,
   Database,
   Wrench,
-  Sparkles,
-  Layers,
-  CheckCircle2,
 } from "lucide-react";
 import { SectionReveal } from "./section-reveal";
 import { skillCategories } from "@/data/skills";
@@ -44,8 +41,7 @@ export function Skills() {
     <section
       id="skills"
       aria-labelledby="skills-heading"
-      className="relative section-py overflow-hidden"
-      style={{ background: "var(--color-bg-primary)" }}
+      className="relative section-py overflow-hidden bg-transparent"
     >
       {/* Soft background ambient glow */}
       <div
@@ -53,7 +49,7 @@ export function Skills() {
         className="absolute top-1/2 right-0 w-[550px] h-[550px] -translate-y-1/2 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at right, rgba(57,255,20,0.035) 0%, transparent 70%)",
+            "radial-gradient(ellipse at right, rgba(0, 240, 255, 0.035) 0%, rgba(168, 85, 247, 0.02) 45%, transparent 70%)",
         }}
       />
 
@@ -87,13 +83,13 @@ export function Skills() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveFilter(tab.id as FilterType)}
-                  className="px-4 py-2 rounded-xl text-xs font-medium transition-all duration-200 cursor-pointer"
+                  className="px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all duration-200 cursor-pointer"
                   style={{
                     background: isActive ? "var(--color-accent-dim)" : "rgba(255,255,255,0.025)",
                     border: "1px solid",
                     borderColor: isActive ? "var(--color-border-strong)" : "rgba(255,255,255,0.07)",
-                    color: isActive ? "var(--color-accent)" : "var(--color-text-secondary)",
-                    boxShadow: isActive ? "0 0 20px rgba(57,255,20,0.1)" : "none",
+                    color: isActive ? "var(--color-accent)" : "rgba(255, 255, 255, 0.7)",
+                    boxShadow: isActive ? "0 0 20px rgba(0, 240, 255, 0.15)" : "none",
                   }}
                 >
                   {tab.label}
@@ -127,7 +123,7 @@ export function Skills() {
                         background: "var(--color-accent-dim)",
                         border: "1px solid var(--color-border-strong)",
                         color: "var(--color-accent)",
-                        boxShadow: "0 0 16px rgba(57,255,20,0.08)",
+                        boxShadow: "0 0 16px rgba(0, 240, 255, 0.1)",
                       }}
                       aria-hidden="true"
                     >
@@ -135,13 +131,13 @@ export function Skills() {
                     </div>
                     <div>
                       <h3
-                        className="font-display font-bold text-lg leading-snug group-hover:text-[var(--color-accent)] transition-colors"
+                        className="font-sans font-bold text-lg leading-snug group-hover:text-[var(--color-accent)] transition-colors"
                         style={{ color: "var(--color-text-primary)" }}
                       >
                         {category.title}
                       </h3>
                       <span className="text-[11px] font-mono text-[var(--color-text-muted)] flex items-center gap-1.5 mt-0.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] opacity-70" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] opacity-80" />
                         {category.skills.length} Technologies
                       </span>
                     </div>
@@ -149,43 +145,24 @@ export function Skills() {
 
                   {/* Description */}
                   {category.description && (
-                    <p className="text-[14px] leading-relaxed text-[var(--color-text-secondary)] mb-6">
+                    <p className="text-[14px] leading-relaxed text-[var(--color-text-secondary)] mb-6 font-sans">
                       {category.description}
                     </p>
                   )}
                 </div>
 
-                {/* Neat Tag Clusters */}
-                <div className="pt-4 border-t border-[rgba(255,255,255,0.07)]">
+                {/* Tech Tag Clusters with Lift and Glow */}
+                <div className="pt-4 border-t border-[var(--color-border-subtle)]">
                   <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill) => (
                       <span
                         key={skill.name}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium transition-all duration-200 cursor-default"
-                        style={{
-                          background: "rgba(255, 255, 255, 0.025)",
-                          color: "var(--color-text-primary)",
-                          border: "1px solid rgba(255, 255, 255, 0.08)",
-                        }}
-                        onMouseEnter={(e) => {
-                          const el = e.currentTarget;
-                          el.style.borderColor = "var(--color-border-strong)";
-                          el.style.color = "var(--color-accent)";
-                          el.style.background = "var(--color-accent-dim)";
-                          el.style.transform = "translateY(-1px)";
-                        }}
-                        onMouseLeave={(e) => {
-                          const el = e.currentTarget;
-                          el.style.borderColor = "rgba(255, 255, 255, 0.08)";
-                          el.style.color = "var(--color-text-primary)";
-                          el.style.background = "rgba(255, 255, 255, 0.025)";
-                          el.style.transform = "translateY(0)";
-                        }}
+                        className="tech-tag"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] opacity-80" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] opacity-85" />
                         <span>{skill.name}</span>
                         {skill.level === "advanced" && (
-                          <span className="text-[9px] font-mono text-[var(--color-accent)] opacity-70">
+                          <span className="text-[9px] font-mono text-[var(--color-accent)] opacity-80">
                             ★
                           </span>
                         )}

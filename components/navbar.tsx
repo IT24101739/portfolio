@@ -89,13 +89,13 @@ export function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300"
       style={{
         background: "var(--color-bg-glass)",
-        backdropFilter: "blur(16px) saturate(180%)",
-        WebkitBackdropFilter: "blur(16px) saturate(180%)",
+        backdropFilter: "blur(20px) saturate(180%)",
+        WebkitBackdropFilter: "blur(20px) saturate(180%)",
         borderBottom: isScrolled
           ? "1px solid var(--color-border-strong)"
           : "1px solid var(--color-border)",
         boxShadow: isScrolled
-          ? "0 4px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(57, 255, 20, 0.06)"
+          ? "0 4px 28px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 240, 255, 0.08)"
           : "none",
       }}
     >
@@ -103,29 +103,27 @@ export function Navbar() {
         <div className="relative flex items-center justify-between h-[60px] sm:h-[72px] lg:h-[76px]">
 
           {/* ═════════════════════════════════════════════════════════════════
-              LEFT: Compact Logo + Name + Professional Subtitle
+              LEFT: Logo + Name + Professional Subtitle
               ═════════════════════════════════════════════════════════════════ */}
           <button
             onClick={() => handleNavClick("#home")}
             className="flex items-center gap-2.5 sm:gap-3 group cursor-pointer border-none bg-transparent p-0 text-left shrink-0 z-10 min-w-0"
             aria-label="Go to top of page"
           >
-            {/* Compact square logo with subtle green border & glow */}
             <div
               className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center transition-all duration-200 group-hover:scale-105 shrink-0"
               style={{
-                background: "var(--color-bg-card)",
+                background: "var(--color-bg-pill)",
                 border: "1px solid var(--color-border-strong)",
-                boxShadow: "0 0 10px rgba(57, 255, 20, 0.12)",
+                boxShadow: "0 0 14px var(--color-glow)",
               }}
             >
               <Cpu size={15} style={{ color: "var(--color-accent)" }} aria-hidden="true" />
             </div>
 
-            {/* Name + Subtitle */}
             <div className="flex flex-col min-w-0">
               <span
-                className="font-display font-bold text-[14px] sm:text-[16px] tracking-tight leading-tight transition-colors group-hover:text-[var(--color-accent)] truncate"
+                className="font-sans font-bold text-[14px] sm:text-[16px] tracking-tight leading-tight transition-colors group-hover:text-[var(--color-accent)] truncate"
                 style={{ color: "var(--color-text-primary)" }}
               >
                 {personalInfo.name}
@@ -134,7 +132,7 @@ export function Navbar() {
                 className="hidden sm:block font-mono text-[9px] sm:text-[10px] tracking-[0.14em] uppercase font-semibold mt-0.5 leading-none"
                 style={{
                   color: "var(--color-accent)",
-                  opacity: 0.85,
+                  opacity: 0.9,
                 }}
               >
                 AI &amp; ML ENGINEER · FULL-STACK DEVELOPER
@@ -143,7 +141,7 @@ export function Navbar() {
           </button>
 
           {/* ═════════════════════════════════════════════════════════════════
-              CENTER: Truly Centered Navigation Links
+              CENTER: Navigation Links
               ═════════════════════════════════════════════════════════════════ */}
           <nav
             aria-label="Main navigation"
@@ -156,33 +154,22 @@ export function Navbar() {
                   key={link.href}
                   onClick={() => handleNavClick(link.href)}
                   aria-current={isActive ? "page" : undefined}
-                  className="relative py-2 px-1 text-[13.5px] xl:text-[14px] font-medium transition-colors duration-200 cursor-pointer border-none bg-transparent whitespace-nowrap shrink-0 group"
+                  className="relative py-2 px-1 text-[13.5px] xl:text-[14px] font-sans font-medium transition-colors duration-200 cursor-pointer border-none bg-transparent whitespace-nowrap shrink-0 group text-[var(--color-text-secondary)] hover:text-[var(--color-accent)]"
                   style={{
                     color: isActive
                       ? "var(--color-accent)"
-                      : "var(--color-text-secondary)",
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!isActive) {
-                      e.currentTarget.style.color = "var(--color-accent)";
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isActive) {
-                      e.currentTarget.style.color = "var(--color-text-secondary)";
-                    }
+                      : undefined,
                   }}
                 >
                   <span>{link.label}</span>
 
-                  {/* Subtle active indicator: understated bottom line with spring transition */}
                   {isActive && (
                     <motion.span
                       layoutId="nav-active-indicator"
                       className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full"
                       style={{
                         background: "var(--color-accent)",
-                        boxShadow: "0 0 8px var(--color-accent-glow)",
+                        boxShadow: "0 0 10px var(--color-accent-glow)",
                       }}
                       transition={{ type: "spring", stiffness: 420, damping: 32 }}
                     />
@@ -193,41 +180,25 @@ export function Navbar() {
           </nav>
 
           {/* ═════════════════════════════════════════════════════════════════
-              RIGHT: Premium "Let's Connect →" CTA + Theme Toggle + Robot
+              RIGHT: Premium "Let's Connect →" CTA + Theme Toggle
               ═════════════════════════════════════════════════════════════════ */}
           <div className="flex items-center gap-3 sm:gap-4 shrink-0 ml-auto z-10">
 
             {/* Premium Attractive "Let's Connect" CTA Button */}
             <button
               onClick={() => handleNavClick("#contact")}
-              className="group relative hidden sm:inline-flex items-center gap-2.5 px-4 py-2 rounded-xl text-[13px] font-semibold transition-all duration-300 cursor-pointer overflow-hidden"
+              className="group relative hidden sm:inline-flex items-center gap-2.5 px-4 py-2 rounded-xl text-[13px] font-sans font-semibold transition-all duration-300 cursor-pointer overflow-hidden border border-[var(--color-accent)]/40 bg-[var(--color-accent-dim)] text-[var(--color-accent)] hover:border-[var(--color-accent)] hover:shadow-[0_0_20px_var(--color-glow)]"
               style={{
-                background: "linear-gradient(135deg, rgba(57, 255, 20, 0.12) 0%, rgba(18, 18, 18, 0.85) 100%)",
-                border: "1px solid rgba(57, 255, 20, 0.35)",
-                color: "var(--color-accent)",
                 backdropFilter: "blur(12px)",
                 WebkitBackdropFilter: "blur(12px)",
-                boxShadow: "0 2px 12px rgba(0, 0, 0, 0.4), 0 0 15px rgba(57, 255, 20, 0.08)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-1.5px) scale(1.02)";
-                e.currentTarget.style.borderColor = "var(--color-accent)";
-                e.currentTarget.style.boxShadow = "0 6px 24px rgba(0, 0, 0, 0.5), 0 0 25px rgba(57, 255, 20, 0.32)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0) scale(1)";
-                e.currentTarget.style.borderColor = "rgba(57, 255, 20, 0.35)";
-                e.currentTarget.style.boxShadow = "0 2px 12px rgba(0, 0, 0, 0.4), 0 0 15px rgba(57, 255, 20, 0.08)";
               }}
               aria-label="Navigate to contact section to connect"
             >
-              {/* Shimmering highlight sweep on hover */}
               <span
                 aria-hidden="true"
                 className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"
               />
 
-              {/* Status beacon dot with pulse ring */}
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-accent)] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-accent)] shadow-[0_0_8px_var(--color-accent)]" />
@@ -235,13 +206,11 @@ export function Navbar() {
 
               <span className="tracking-wide">Let&apos;s Connect</span>
 
-              {/* Icon badge with slide and glow animation */}
-              <span className="w-5 h-5 rounded-md flex items-center justify-center bg-[var(--color-accent-dim)] border border-[rgba(57,255,20,0.3)] transition-all duration-300 group-hover:border-[var(--color-accent)] group-hover:bg-[var(--color-accent)] group-hover:text-[#050505]">
+              <span className="w-5 h-5 rounded-md flex items-center justify-center bg-[var(--color-accent-dim)] border border-[rgba(0,240,255,0.3)] transition-all duration-300 group-hover:border-[var(--color-accent)] group-hover:bg-[var(--color-accent)] group-hover:text-[#0A0F1C]">
                 <ArrowRight size={11} className="transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
               </span>
             </button>
 
-            {/* Compact High-Tech Theme Toggle */}
             <ThemeToggle />
 
             {/* Mobile Hamburger Button */}
@@ -281,9 +250,7 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* ═════════════════════════════════════════════════════════════════
-          MOBILE SLIDE-DOWN DRAWER MENU
-          ═════════════════════════════════════════════════════════════════ */}
+      {/* Mobile Drawer Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -303,7 +270,6 @@ export function Navbar() {
             }}
           >
             <div className="max-w-[1440px] mx-auto px-6 py-6">
-              {/* Navigation Links list */}
               <ul role="list" className="flex flex-col gap-1">
                 {navLinks.map((link, i) => {
                   const isActive = activeSection === link.href.replace("#", "");
@@ -345,7 +311,6 @@ export function Navbar() {
                 })}
               </ul>
 
-              {/* Action row at bottom of mobile menu */}
               <div
                 className="mt-5 pt-4 flex items-center justify-between gap-3 text-xs"
                 style={{
@@ -359,13 +324,7 @@ export function Navbar() {
 
                 <button
                   onClick={() => handleNavClick("#contact")}
-                  className="group inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold cursor-pointer transition-all duration-200"
-                  style={{
-                    background: "linear-gradient(135deg, rgba(57, 255, 20, 0.12) 0%, rgba(18, 18, 18, 0.85) 100%)",
-                    border: "1px solid rgba(57, 255, 20, 0.35)",
-                    color: "var(--color-accent)",
-                    boxShadow: "0 0 12px rgba(57, 255, 20, 0.1)",
-                  }}
+                  className="group inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold cursor-pointer transition-all duration-200 border border-[var(--color-accent)]/40 bg-[var(--color-accent-dim)] text-[var(--color-accent)] hover:border-[var(--color-accent)] hover:shadow-[0_0_12px_var(--color-glow)]"
                 >
                   <span>Let&apos;s Connect</span>
                   <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />

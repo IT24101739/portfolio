@@ -18,12 +18,12 @@ export function Contact() {
       setTimeout(() => setCopied(false), 2200);
     }
   };
+
   return (
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative section-py overflow-hidden"
-      style={{ background: "var(--color-bg-secondary)" }}
+      className="relative section-py overflow-hidden bg-transparent"
     >
       {/* Background radial glow */}
       <div
@@ -31,7 +31,7 @@ export function Contact() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 70% 50% at 50% 100%, rgba(57,255,20,0.045) 0%, transparent 70%)",
+            "radial-gradient(ellipse 70% 50% at 50% 100%, rgba(0, 240, 255, 0.04) 0%, rgba(168, 85, 247, 0.02) 45%, transparent 70%)",
         }}
       />
 
@@ -61,7 +61,7 @@ export function Contact() {
           <div className="lg:col-span-6 flex flex-col gap-5">
             <SectionReveal delay={0.1}>
               <h3
-                className="font-display font-semibold text-sm uppercase tracking-wider mb-2"
+                className="font-mono font-semibold text-xs uppercase tracking-wider mb-2"
                 style={{ color: "var(--color-text-muted)" }}
               >
                 Direct Communication Channels
@@ -91,10 +91,10 @@ export function Contact() {
                     <LinkedInIcon size={20} />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <span className="text-[11px] sm:text-xs uppercase tracking-wider font-semibold text-[var(--color-text-muted)] block mb-0.5 truncate">
+                    <span className="text-[11px] sm:text-xs uppercase tracking-wider font-mono font-semibold text-[var(--color-text-muted)] block mb-0.5 truncate">
                       Professional Network
                     </span>
-                    <h4 className="font-display font-bold text-sm sm:text-base text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors truncate">
+                    <h4 className="font-sans font-bold text-sm sm:text-base text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors truncate">
                       {personalInfo.name} on LinkedIn
                     </h4>
                     <span className="text-[11px] sm:text-xs text-[var(--color-accent)] block truncate">
@@ -124,8 +124,8 @@ export function Contact() {
                   <div
                     className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105"
                     style={{
-                      background: "var(--color-bg-secondary)",
-                      border: "1px solid var(--color-border)",
+                      background: "var(--color-bg-pill)",
+                      border: "1px solid var(--color-border-subtle)",
                       color: "var(--color-text-primary)",
                     }}
                     aria-hidden="true"
@@ -133,10 +133,10 @@ export function Contact() {
                     <GitHubIcon size={20} />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <span className="text-[11px] sm:text-xs uppercase tracking-wider font-semibold text-[var(--color-text-muted)] block mb-0.5 truncate">
+                    <span className="text-[11px] sm:text-xs uppercase tracking-wider font-mono font-semibold text-[var(--color-text-muted)] block mb-0.5 truncate">
                       Code Repositories
                     </span>
-                    <h4 className="font-display font-bold text-sm sm:text-base text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors truncate">
+                    <h4 className="font-sans font-bold text-sm sm:text-base text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors truncate">
                       github.com/maleesha-maddegoda
                     </h4>
                     <span className="text-[11px] sm:text-xs text-[var(--color-text-muted)] block truncate">
@@ -175,10 +175,10 @@ export function Contact() {
                     <Mail size={20} />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <span className="text-[11px] sm:text-xs uppercase tracking-wider font-semibold text-[var(--color-text-muted)] block mb-0.5 truncate">
+                    <span className="text-[11px] sm:text-xs uppercase tracking-wider font-mono font-semibold text-[var(--color-text-muted)] block mb-0.5 truncate">
                       Direct Email · Gmail
                     </span>
-                    <h4 className="font-display font-bold text-xs sm:text-base text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors truncate">
+                    <h4 className="font-sans font-bold text-xs sm:text-base text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors truncate">
                       {personalInfo.email}
                     </h4>
                     <span className="text-[11px] sm:text-xs text-[var(--color-accent)] block truncate">
@@ -191,12 +191,12 @@ export function Contact() {
                   <button
                     type="button"
                     onClick={handleCopyEmail}
-                    className="px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1 sm:gap-1.5 transition-all cursor-pointer"
+                    className="px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-mono font-medium flex items-center gap-1 sm:gap-1.5 transition-all cursor-pointer"
                     style={{
-                      background: copied ? "var(--color-accent)" : "rgba(255,255,255,0.06)",
+                      background: copied ? "var(--color-accent)" : "var(--color-bg-pill)",
                       border: "1px solid",
-                      borderColor: copied ? "var(--color-accent)" : "var(--color-border)",
-                      color: copied ? "#050505" : "var(--color-text-secondary)",
+                      borderColor: copied ? "var(--color-accent)" : "var(--color-border-subtle)",
+                      color: copied ? "#0A0F1C" : "var(--color-text-secondary)",
                     }}
                     title="Copy email to clipboard"
                     aria-label="Copy email address"
@@ -232,16 +232,16 @@ export function Contact() {
                     <MessageSquare size={22} />
                   </div>
                   <div>
-                    <h3 className="font-display font-bold text-xl text-[var(--color-text-primary)]">
+                    <h3 className="font-sans font-bold text-xl text-[var(--color-text-primary)]">
                       Open to Opportunities
                     </h3>
-                    <p className="text-xs text-[var(--color-accent)] font-semibold">
+                    <p className="text-xs text-[var(--color-accent)] font-semibold font-mono">
                       Undergraduate Internship &amp; Project Availability
                     </p>
                   </div>
                 </div>
 
-                <p className="text-sm md:text-base leading-relaxed text-[var(--color-text-secondary)]">
+                <p className="text-sm md:text-base leading-relaxed text-[var(--color-text-secondary)] font-sans">
                   I am actively seeking internship opportunities, research collaborations, and junior
                   engineering engagements where I can apply my AI/ML knowledge and full-stack software
                   development skills to meaningful, real-world problems.
@@ -249,7 +249,7 @@ export function Contact() {
 
                 {/* Checklist */}
                 <div className="space-y-3 pt-2">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] block mb-2">
+                  <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[var(--color-text-muted)] block mb-2">
                     Areas of Collaboration:
                   </span>
                   {[
@@ -260,7 +260,7 @@ export function Contact() {
                   ].map((item) => (
                     <div key={item} className="flex items-start gap-3">
                       <CheckCircle2 size={16} className="text-[var(--color-accent)] flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-[var(--color-text-secondary)]">
+                      <span className="text-sm text-[var(--color-text-secondary)] font-sans">
                         {item}
                       </span>
                     </div>

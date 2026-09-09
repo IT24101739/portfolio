@@ -38,8 +38,7 @@ export function Certifications() {
     <section
       id="certifications"
       aria-labelledby="certifications-heading"
-      className="relative section-py overflow-hidden"
-      style={{ background: "var(--color-bg-primary)" }}
+      className="relative section-py overflow-hidden bg-transparent"
     >
       {/* Ambient background glow */}
       <div
@@ -47,64 +46,66 @@ export function Certifications() {
         className="absolute top-1/2 left-0 w-[500px] h-[500px] -translate-y-1/2 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at left, rgba(57,255,20,0.04) 0%, transparent 70%)",
+            "radial-gradient(ellipse at left, rgba(0, 240, 255, 0.04) 0%, rgba(168, 85, 247, 0.02) 45%, transparent 70%)",
         }}
       />
 
       <div className="section-container relative z-10">
         {/* Section Header */}
-        <SectionReveal className="mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#39ff14]/40 bg-[#39ff14]/10 text-[#39ff14] text-xs font-mono font-semibold mb-6">
-            06 / CREDENTIALS
+        <SectionReveal className="section-header-block">
+          <div className="section-eyebrow">
+            <span className="section-eyebrow-number">06</span>
+            <span className="section-eyebrow-slash">/</span>
+            <span className="section-eyebrow-label">Credentials</span>
           </div>
           <h2
             id="certifications-heading"
-            className="font-display font-bold text-3xl md:text-5xl text-white tracking-tight mb-3"
+            className="section-title"
           >
-            Certifications &amp; <span className="text-[#39ff14]">Continuous Learning</span>
+            Certifications &amp; <span className="gradient-text">Continuous Learning</span>
           </h2>
-          <div className="w-12 h-1 rounded-full bg-[#39ff14] mb-5" />
-          <p className="text-sm md:text-base text-neutral-400 max-w-3xl leading-relaxed">
+          <div className="section-accent-line" aria-hidden="true" />
+          <p className="section-subtitle">
             Formal milestones, specialized training tracks, and applied engineering certifications
             supplementing undergraduate studies.
           </p>
         </SectionReveal>
 
-        {/* 6 High-Tech, Professional Certification Cards Matching Mockup */}
+        {/* 6 High-Tech, Professional Certification Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {certifications.map((cert, i) => {
             const Icon = getCertIcon(cert.id);
-            const isFeatured = i === 0; // Top-left featured card matching mockup green glow
+            const isFeatured = i === 0;
             return (
               <SectionReveal key={cert.id} delay={i * 0.05} className="h-full">
                 <article
-                  className={`relative h-full flex flex-col justify-between p-5 sm:p-6 transition-all duration-300 rounded-[20px] ${
+                  className={`card-box relative h-full flex flex-col justify-between p-5 sm:p-6 transition-all duration-300 rounded-[22px] ${
                     isFeatured
-                      ? "border border-[#39ff14]/80 shadow-[0_0_24px_rgba(57,255,20,0.18)]"
-                      : "border border-neutral-800/80 hover:border-[#39ff14]/70 hover:shadow-[0_0_20px_rgba(57,255,20,0.15)]"
+                      ? "border border-[var(--color-accent)] shadow-[0_0_24px_var(--color-glow)]"
+                      : "hover:border-[var(--color-accent)] hover:shadow-[0_0_25px_var(--color-glow)]"
                   }`}
                   style={{
-                    background: "#0c100c",
+                    background: "var(--color-bg-card)",
                   }}
                 >
                   <div>
                     {/* Top Row: Unboxed Icon + Date & Badge Pill */}
                     <div className="flex items-center justify-between gap-3 mb-4">
-                      <div className="text-[#39ff14]" aria-hidden="true">
+                      <div className="text-[var(--color-accent)]" aria-hidden="true">
                         <Icon size={22} strokeWidth={2} />
                       </div>
 
                       <div className="flex items-center gap-2 flex-wrap justify-end">
-                        <span className="text-xs font-mono text-neutral-400">
+                        <span className="text-xs font-mono text-[var(--color-text-muted)]">
                           {cert.date}
                         </span>
                         {cert.badge && (
                           <span
-                            className="text-xs font-medium px-2.5 py-0.5 rounded-full"
+                            className="text-xs font-mono font-medium px-2.5 py-0.5 rounded-full"
                             style={{
-                              border: "1px solid rgba(57,255,20,0.4)",
-                              background: "rgba(57,255,20,0.08)",
-                              color: "#39ff14",
+                              border: "1px solid var(--color-border-strong)",
+                              background: "var(--color-accent-dim)",
+                              color: "var(--color-accent)",
                             }}
                           >
                             {cert.badge}
@@ -114,13 +115,13 @@ export function Certifications() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-display font-bold text-lg text-white leading-snug mb-1">
+                    <h3 className="font-sans font-bold text-lg text-[var(--color-text-primary)] leading-snug mb-1">
                       {cert.title}
                     </h3>
 
                     {/* Issuer */}
-                    <p className="text-xs text-neutral-400 mb-4 flex items-center gap-1.5">
-                      <span className="text-[#39ff14] text-sm leading-none">•</span>
+                    <p className="text-xs text-[var(--color-text-secondary)] mb-4 flex items-center gap-1.5">
+                      <span className="text-[var(--color-accent)] text-sm leading-none">•</span>
                       <span>{cert.issuer}</span>
                     </p>
 
@@ -130,17 +131,17 @@ export function Certifications() {
                         className="mb-5 rounded-xl"
                         style={{
                           padding: "12px 14px",
-                          background: "rgba(255, 255, 255, 0.025)",
-                          border: "1px solid rgba(255, 255, 255, 0.05)",
+                          background: "var(--color-bg-pill)",
+                          border: "1px solid var(--color-border-subtle)",
                         }}
                       >
-                        <p className="text-xs font-semibold text-neutral-200 mb-2">
+                        <p className="text-xs font-mono font-semibold text-[var(--color-text-primary)] mb-2">
                           Key Learning Gains:
                         </p>
-                        <ul className="space-y-1.5 text-xs text-neutral-300 leading-relaxed">
+                        <ul className="space-y-1.5 text-xs text-[var(--color-text-secondary)] leading-relaxed font-sans">
                           {cert.keyLearnings.map((bullet, idx) => (
                             <li key={idx} className="flex items-start gap-2">
-                              <span className="text-[#39ff14] text-xs font-bold shrink-0 mt-0.5 select-none">
+                              <span className="text-[var(--color-accent)] text-xs font-bold shrink-0 mt-0.5 select-none">
                                 •
                               </span>
                               <span>{bullet}</span>
@@ -154,21 +155,21 @@ export function Certifications() {
                   {/* Footer: Verification Bar & Action Button */}
                   <div
                     className="pt-4 flex flex-col gap-3"
-                    style={{ borderTop: "1px solid rgba(255, 255, 255, 0.08)" }}
+                    style={{ borderTop: "1px solid var(--color-border-subtle)" }}
                   >
                     {/* Verified Credential & ID line */}
-                    <div className="flex items-center justify-between text-xs text-neutral-400">
-                      <div className="flex items-center gap-1.5 text-neutral-300">
-                        <CheckCircle2 size={14} className="text-[#39ff14]" />
+                    <div className="flex items-center justify-between text-xs text-[var(--color-text-secondary)]">
+                      <div className="flex items-center gap-1.5 text-[var(--color-text-primary)]">
+                        <CheckCircle2 size={14} className="text-[var(--color-accent)]" />
                         <span className="font-medium">Verified Credential</span>
                       </div>
                       {cert.credentialId && (
                         <span
                           className="font-mono text-xs px-2 py-0.5 rounded"
                           style={{
-                            background: "rgba(255,255,255,0.04)",
-                            border: "1px solid rgba(255,255,255,0.06)",
-                            color: "#a3a3a3",
+                            background: "var(--color-bg-pill)",
+                            border: "1px solid var(--color-border-subtle)",
+                            color: "var(--color-text-secondary)",
                           }}
                         >
                           ID: {cert.credentialId}
@@ -176,7 +177,7 @@ export function Certifications() {
                       )}
                     </div>
 
-                    {/* Full-width Action Button with generous internal padding */}
+                    {/* Action Button */}
                     <a
                       href={
                         cert.credentialUrl ||
@@ -184,22 +185,7 @@ export function Certifications() {
                       }
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-semibold transition-all duration-200 group/btn"
-                      style={{
-                        border: "1px solid rgba(57, 255, 20, 0.4)",
-                        background: "rgba(57, 255, 20, 0.06)",
-                        color: "#39ff14",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.background = "rgba(57, 255, 20, 0.18)";
-                        e.currentTarget.style.borderColor = "#39ff14";
-                        e.currentTarget.style.boxShadow = "0 0 16px rgba(57,255,20,0.25)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background = "rgba(57, 255, 20, 0.06)";
-                        e.currentTarget.style.borderColor = "rgba(57, 255, 20, 0.4)";
-                        e.currentTarget.style.boxShadow = "none";
-                      }}
+                      className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-semibold transition-all duration-200 group/btn border border-[var(--color-accent)]/35 bg-[var(--color-accent-dim)] text-[var(--color-accent)] hover:border-[var(--color-accent)] hover:shadow-[0_0_16px_var(--color-glow)]"
                     >
                       <span>Show Credential</span>
                       <ExternalLink

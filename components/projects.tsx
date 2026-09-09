@@ -1,6 +1,6 @@
 "use client";
 
-import { ExternalLink, Rocket, Sparkles, Binary, CheckCircle2, Clock } from "lucide-react";
+import { ExternalLink, Rocket, Sparkles, CheckCircle2, Clock } from "lucide-react";
 import { GitHubIcon } from "./icons";
 import { SectionReveal } from "./section-reveal";
 import { projects, Project } from "@/data/projects";
@@ -27,20 +27,20 @@ function ProjectCard({ project }: { project: Project }) {
 
           {/* Status Badge */}
           <div
-            className="flex items-center gap-1.5 text-[11px] font-semibold px-2.5 py-1 rounded-full"
+            className="flex items-center gap-1.5 text-[11px] font-mono font-semibold px-2.5 py-1 rounded-full"
             style={{
               background:
                 project.status === "completed"
-                  ? "rgba(34,197,94,0.12)"
-                  : "rgba(251,191,36,0.12)",
+                  ? "rgba(0, 240, 255, 0.1)"
+                  : "rgba(251, 191, 36, 0.1)",
               color:
                 project.status === "completed"
-                  ? "#22c55e"
+                  ? "#00F0FF"
                   : "#fbbf24",
               border: `1px solid ${
                 project.status === "completed"
-                  ? "rgba(34,197,94,0.3)"
-                  : "rgba(251,191,36,0.3)"
+                  ? "rgba(0, 240, 255, 0.3)"
+                  : "rgba(251, 191, 36, 0.3)"
               }`,
             }}
           >
@@ -55,7 +55,7 @@ function ProjectCard({ project }: { project: Project }) {
 
         {/* Project Title */}
         <h3
-          className="font-display font-bold text-xl mb-3 transition-colors duration-200 group-hover:text-[var(--color-accent)]"
+          className="font-sans font-bold text-xl mb-3 transition-colors duration-200 group-hover:text-[var(--color-accent)]"
           style={{ color: "var(--color-text-primary)" }}
         >
           {project.title}
@@ -72,24 +72,19 @@ function ProjectCard({ project }: { project: Project }) {
         )}
 
         {/* Description */}
-        <p className="text-sm leading-relaxed text-[var(--color-text-secondary)] mb-6">
+        <p className="text-sm leading-relaxed text-[var(--color-text-secondary)] mb-6 font-sans">
           {project.description}
         </p>
       </div>
 
       <div>
-        {/* Technologies Pills */}
+        {/* Technologies Pills with hover lift & glow */}
         {project.technologies.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 mb-6 pt-4 border-t border-[var(--color-border)]">
+          <div className="flex flex-wrap gap-1.5 mb-6 pt-4 border-t border-[var(--color-border-subtle)]">
             {project.technologies.map((tech) => (
               <span
                 key={tech}
-                className="text-xs px-2.5 py-1 rounded-md font-medium"
-                style={{
-                  background: "var(--color-bg-secondary)",
-                  color: "var(--color-text-muted)",
-                  border: "1px solid var(--color-border)",
-                }}
+                className="tech-tag"
               >
                 {tech}
               </span>
@@ -106,9 +101,9 @@ function ProjectCard({ project }: { project: Project }) {
               rel="noopener noreferrer"
               className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 text-xs font-semibold rounded-xl transition-all duration-200"
               style={{
-                background: "var(--color-bg-secondary)",
+                background: "var(--color-bg-pill)",
                 color: "var(--color-text-primary)",
-                border: "1px solid var(--color-border)",
+                border: "1px solid var(--color-border-subtle)",
                 textDecoration: "none",
               }}
               onMouseEnter={(e) => {
@@ -119,9 +114,9 @@ function ProjectCard({ project }: { project: Project }) {
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget;
-                el.style.borderColor = "var(--color-border)";
+                el.style.borderColor = "var(--color-border-subtle)";
                 el.style.color = "var(--color-text-primary)";
-                el.style.background = "var(--color-bg-secondary)";
+                el.style.background = "var(--color-bg-pill)";
               }}
               aria-label={`View ${project.title} on GitHub (opens in new tab)`}
             >
@@ -137,18 +132,19 @@ function ProjectCard({ project }: { project: Project }) {
               rel="noopener noreferrer"
               className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 text-xs font-bold rounded-xl transition-all duration-200"
               style={{
-                background: "linear-gradient(135deg, var(--color-accent) 0%, var(--color-green2) 100%)",
-                color: "#050505",
+                background: "var(--color-accent)",
+                color: "#0A0F1C",
                 textDecoration: "none",
+                boxShadow: "0 0 16px var(--color-accent-glow)",
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget;
-                el.style.boxShadow = "0 8px 24px var(--color-accent-glow)";
+                el.style.boxShadow = "0 0 24px var(--color-accent-glow)";
                 el.style.transform = "translateY(-1px)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget;
-                el.style.boxShadow = "none";
+                el.style.boxShadow = "0 0 16px var(--color-accent-glow)";
                 el.style.transform = "translateY(0)";
               }}
               aria-label={`View ${project.title} live demo (opens in new tab)`}
@@ -168,8 +164,7 @@ export function Projects() {
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="relative section-py overflow-hidden"
-      style={{ background: "var(--color-bg-secondary)" }}
+      className="relative section-py overflow-hidden bg-transparent"
     >
       {/* Background glow */}
       <div
@@ -177,7 +172,7 @@ export function Projects() {
         className="absolute top-0 left-0 w-[600px] h-[500px] pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at top left, rgba(57,255,20,0.04) 0%, transparent 70%)",
+            "radial-gradient(ellipse at top left, rgba(0, 240, 255, 0.04) 0%, rgba(168, 85, 247, 0.02) 45%, transparent 70%)",
         }}
       />
 
@@ -214,10 +209,10 @@ export function Projects() {
             <div className="flex items-center gap-3">
               <Rocket size={20} className="text-[var(--color-accent)] flex-shrink-0" />
               <div>
-                <h4 className="font-display font-semibold text-sm text-[var(--color-text-primary)]">
+                <h4 className="font-sans font-semibold text-sm text-[var(--color-text-primary)]">
                   Upcoming 3rd Year Research &amp; Capstone
                 </h4>
-                <p className="text-xs text-[var(--color-text-secondary)] mt-0.5">
+                <p className="text-xs text-[var(--color-text-secondary)] mt-0.5 font-sans">
                   Currently architecting advanced multi-modal AI models and edge deployment experiments at SLIIT.
                 </p>
               </div>
@@ -226,11 +221,8 @@ export function Projects() {
               href="https://github.com/maleesha-maddegoda"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-mono font-semibold px-4 py-2 rounded-lg transition-colors duration-200 self-center sm:self-auto"
+              className="text-xs font-mono font-semibold px-4 py-2 rounded-lg transition-colors duration-200 self-center sm:self-auto border border-[var(--color-border-subtle)] bg-[var(--color-bg-pill)] text-[var(--color-accent)] hover:border-[var(--color-accent)]"
               style={{
-                background: "var(--color-bg-secondary)",
-                border: "1px solid var(--color-border)",
-                color: "var(--color-accent)",
                 whiteSpace: "nowrap",
                 textDecoration: "none",
               }}

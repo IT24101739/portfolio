@@ -24,14 +24,14 @@ function AIGrid() {
   return (
     <div aria-hidden="true" className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Technical grid */}
-      <div className="grid-bg opacity-70" />
+      <div className="grid-bg opacity-50" />
 
-      {/* Soft green radial glow — top center */}
+      {/* Subtle radial depth gradient behind Hero — Deep glowing effect */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 65% 50% at 50% 0%, rgba(57,255,20,0.06) 0%, transparent 70%)",
+            "radial-gradient(ellipse 75% 55% at 50% 15%, rgba(0, 240, 255, 0.08) 0%, rgba(168, 85, 247, 0.04) 45%, transparent 75%)",
         }}
       />
 
@@ -40,73 +40,9 @@ function AIGrid() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 40% 60% at 85% 50%, rgba(34,197,94,0.04) 0%, transparent 70%)",
+            "radial-gradient(ellipse 45% 65% at 85% 45%, rgba(0, 240, 255, 0.05) 0%, transparent 70%)",
         }}
       />
-
-      {/* Floating data nodes — green only */}
-      {[...Array(12)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute rounded-full"
-          style={{
-            width: i % 3 === 0 ? 3.5 : 2,
-            height: i % 3 === 0 ? 3.5 : 2,
-            left: `${6 + i * 8}%`,
-            top: `${10 + (i % 6) * 15}%`,
-            background:
-              i % 2 === 0
-                ? "rgba(57,255,20,0.6)"
-                : "rgba(34,197,94,0.45)",
-            boxShadow: i % 3 === 0
-              ? "0 0 8px rgba(57,255,20,0.5)"
-              : "none",
-          }}
-          animate={{ y: [0, -18, 0], opacity: [0.25, 0.75, 0.25] }}
-          transition={{
-            duration: 3.5 + (i % 4) * 0.8,
-            delay: i * 0.3,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-
-      {/* Neural connection lines — green strokes */}
-      <svg
-        className="absolute inset-0 w-full h-full opacity-[0.06]"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <defs>
-          <linearGradient id="hero-line-1" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#39ff14" stopOpacity="0" />
-            <stop offset="50%" stopColor="#39ff14" stopOpacity="1" />
-            <stop offset="100%" stopColor="#22c55e" stopOpacity="0" />
-          </linearGradient>
-          <linearGradient id="hero-line-2" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#22c55e" stopOpacity="0" />
-            <stop offset="50%" stopColor="#22c55e" stopOpacity="1" />
-            <stop offset="100%" stopColor="#39ff14" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-        <line x1="5%"  y1="20%" x2="25%" y2="45%" stroke="url(#hero-line-1)" strokeWidth="0.8" />
-        <line x1="25%" y1="45%" x2="48%" y2="28%" stroke="url(#hero-line-2)" strokeWidth="0.8" />
-        <line x1="48%" y1="28%" x2="72%" y2="52%" stroke="url(#hero-line-1)" strokeWidth="0.8" />
-        <line x1="72%" y1="52%" x2="92%" y2="33%" stroke="url(#hero-line-2)" strokeWidth="0.8" />
-        <line x1="25%" y1="45%" x2="48%" y2="70%" stroke="url(#hero-line-1)" strokeWidth="0.8" />
-        <line x1="48%" y1="70%" x2="72%" y2="52%" stroke="url(#hero-line-2)" strokeWidth="0.8" />
-        {[[5,20],[25,45],[48,28],[72,52],[92,33],[48,70]].map(([cx,cy],i) => (
-          <circle
-            key={i}
-            cx={`${cx}%`}
-            cy={`${cy}%`}
-            r="2.5"
-            fill={i % 2 === 0 ? "#39ff14" : "#22c55e"}
-            opacity="0.8"
-          />
-        ))}
-      </svg>
 
       {/* Bottom gradient fade */}
       <div
@@ -171,62 +107,80 @@ const pathItems = [
   },
 ];
 
-/* ─── Profile Image Component with Animated Orbit ─── */
+/* ─── Stylized Geometric Deep Tech Profile Image Component ─── */
 function ProfileImage() {
   return (
     <div className="relative w-[290px] h-[290px] sm:w-[380px] sm:h-[380px] lg:w-[450px] lg:h-[450px] mx-auto my-6 sm:my-4 select-none flex items-center justify-center">
-      {/* ─── Background Orbit Track (Outer Animated Dashed Ring) ─── */}
+      {/* ─── Ambient Glow Halo ─── */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-4 rounded-full pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, rgba(168, 85, 247, 0.08) 45%, transparent 70%)",
+          filter: "blur(24px)",
+        }}
+      />
+
+      {/* ─── Outer Geometric Cyber Ring with Cyan Accents ─── */}
       <motion.div
         animate={{ rotate: 360 }}
-        transition={{ duration: 36, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
         className="absolute inset-2 sm:inset-4 rounded-full border border-dashed pointer-events-none"
-        style={{ borderColor: "rgba(57,255,20,0.25)" }}
+        style={{ borderColor: "rgba(0, 240, 255, 0.3)" }}
         aria-hidden="true"
       />
 
-      {/* ─── Secondary Counter-Rotating Ring ─── */}
+      {/* ─── Secondary Counter-Rotating Ring with Neon Purple Accents ─── */}
       <motion.div
         animate={{ rotate: -360 }}
-        transition={{ duration: 48, repeat: Infinity, ease: "linear" }}
-        className="absolute inset-8 sm:inset-10 rounded-full border border-dotted pointer-events-none opacity-40"
-        style={{ borderColor: "rgba(57,255,20,0.2)" }}
+        transition={{ duration: 52, repeat: Infinity, ease: "linear" }}
+        className="absolute inset-8 sm:inset-10 rounded-full border border-dotted pointer-events-none opacity-50"
+        style={{ borderColor: "rgba(168, 85, 247, 0.35)" }}
         aria-hidden="true"
       />
 
       {/* ─── Pulsing Radar Halo ─── */}
       <motion.div
-        animate={{ scale: [0.98, 1.04, 0.98], opacity: [0.25, 0.55, 0.25] }}
+        animate={{ scale: [0.98, 1.04, 0.98], opacity: [0.25, 0.6, 0.25] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         className="absolute inset-10 sm:inset-12 rounded-full pointer-events-none"
         style={{
-          border: "1px solid rgba(57,255,20,0.2)",
-          boxShadow: "0 0 35px rgba(57,255,20,0.12)",
+          border: "1px solid rgba(0, 240, 255, 0.25)",
+          boxShadow: "0 0 35px rgba(0, 240, 255, 0.15)",
         }}
         aria-hidden="true"
       />
+
+      {/* ─── HUD Corner Brackets around frame ─── */}
+      <div className="absolute inset-12 sm:inset-16 pointer-events-none opacity-60">
+        <span className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-[#00F0FF]" />
+        <span className="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-[#00F0FF]" />
+        <span className="absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-[#00F0FF]" />
+        <span className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-[#00F0FF]" />
+      </div>
 
       {/* ─── Connecting Neural Node Lines (SVG) ─── */}
       <svg
         className="absolute inset-0 w-full h-full pointer-events-none"
         aria-hidden="true"
       >
-        <line x1="50%" y1="20%" x2="50%" y2="8%" stroke="rgba(57,255,20,0.25)" strokeDasharray="3 3" strokeWidth="1" />
-        <line x1="28%" y1="28%" x2="16%" y2="18%" stroke="rgba(57,255,20,0.25)" strokeDasharray="3 3" strokeWidth="1" />
-        <line x1="72%" y1="28%" x2="84%" y2="18%" stroke="rgba(57,255,20,0.25)" strokeDasharray="3 3" strokeWidth="1" />
-        <line x1="28%" y1="72%" x2="16%" y2="82%" stroke="rgba(57,255,20,0.25)" strokeDasharray="3 3" strokeWidth="1" />
-        <line x1="72%" y1="72%" x2="84%" y2="82%" stroke="rgba(57,255,20,0.25)" strokeDasharray="3 3" strokeWidth="1" />
+        <line x1="50%" y1="20%" x2="50%" y2="8%" stroke="rgba(0,240,255,0.25)" strokeDasharray="3 3" strokeWidth="1" />
+        <line x1="28%" y1="28%" x2="16%" y2="18%" stroke="rgba(0,240,255,0.25)" strokeDasharray="3 3" strokeWidth="1" />
+        <line x1="72%" y1="28%" x2="84%" y2="18%" stroke="rgba(0,240,255,0.25)" strokeDasharray="3 3" strokeWidth="1" />
+        <line x1="28%" y1="72%" x2="16%" y2="82%" stroke="rgba(0,240,255,0.25)" strokeDasharray="3 3" strokeWidth="1" />
+        <line x1="72%" y1="72%" x2="84%" y2="82%" stroke="rgba(0,240,255,0.25)" strokeDasharray="3 3" strokeWidth="1" />
       </svg>
 
-      {/* ─── Center Photo Circle ─── */}
-      <div className="relative w-[170px] h-[170px] sm:w-[230px] sm:h-[230px] lg:w-[270px] lg:h-[270px] rounded-full">
-        {/* Outer subtle glow */}
+      {/* ─── Center Photo Geometric Frame ─── */}
+      <div className="relative w-[170px] h-[170px] sm:w-[230px] sm:h-[230px] lg:w-[270px] lg:h-[270px] rounded-full group/photo">
+        {/* Outer subtle cyan glow */}
         <div
           aria-hidden="true"
-          className="absolute -inset-3 rounded-full pointer-events-none"
+          className="absolute -inset-3 rounded-full pointer-events-none transition-opacity duration-500 group-hover/photo:opacity-100 opacity-60"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(57,255,20,0.2) 0%, transparent 70%)",
-            animation: "pulse-ring 4s ease-in-out infinite",
+              "radial-gradient(ellipse at center, rgba(0, 240, 255, 0.28) 0%, transparent 70%)",
           }}
         />
 
@@ -235,23 +189,23 @@ function ProfileImage() {
           animate={{ rotate: 360 }}
           transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
           className="absolute -inset-2 rounded-full border border-dashed pointer-events-none"
-          style={{ borderColor: "rgba(57,255,20,0.35)" }}
+          style={{ borderColor: "rgba(0, 240, 255, 0.45)" }}
           aria-hidden="true"
         />
 
         {/* Inner static accent border */}
         <div
           className="absolute -inset-1 rounded-full border pointer-events-none"
-          style={{ borderColor: "rgba(57,255,20,0.2)" }}
+          style={{ borderColor: "rgba(0, 240, 255, 0.25)" }}
           aria-hidden="true"
         />
 
-        {/* Image container */}
+        {/* Image container with subtle grayscale filter transitioning to full color on hover */}
         <div
-          className="relative w-full h-full rounded-full overflow-hidden"
+          className="relative w-full h-full rounded-full overflow-hidden transition-all duration-500"
           style={{
-            border: "2.5px solid rgba(57,255,20,0.5)",
-            boxShadow: "0 0 35px rgba(57,255,20,0.18), inset 0 0 24px rgba(0,0,0,0.6)",
+            border: "2.5px solid rgba(0, 240, 255, 0.6)",
+            boxShadow: "0 0 35px rgba(0, 240, 255, 0.22), inset 0 0 24px rgba(0,0,0,0.7)",
             background: "var(--color-bg-card)",
           }}
         >
@@ -261,12 +215,12 @@ function ProfileImage() {
             fill
             priority
             sizes="(max-width: 640px) 170px, (max-width: 1024px) 230px, 270px"
-            className="object-cover object-[center_20%]"
+            className="object-cover object-[center_20%] grayscale group-hover/photo:grayscale-0 transition-all duration-500 ease-out"
           />
         </div>
       </div>
 
-      {/* ─── 5 Orbiting Badges Around Profile (Green Text According to Theme) ─── */}
+      {/* ─── 5 Orbiting Badges Around Profile (Theme-Adaptive) ─── */}
       {pathItems.map((item) => (
         <motion.div
           key={item.label}
@@ -281,17 +235,16 @@ function ProfileImage() {
             delay: item.delay,
           }}
           whileHover={{ scale: 1.08, y: -4 }}
-          className={`absolute ${item.pos} z-20 flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3.5 py-1 sm:py-2 rounded-full text-[10px] sm:text-xs font-semibold shadow-2xl whitespace-nowrap backdrop-blur-md transition-all duration-300 cursor-default select-none`}
+          className={`absolute ${item.pos} z-20 flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1 sm:py-2 rounded-full text-[10px] sm:text-xs font-semibold shadow-xl whitespace-nowrap backdrop-blur-md transition-all duration-300 cursor-default select-none border`}
           style={{
-            background: "rgba(10, 15, 10, 0.92)",
-            border: "1px solid rgba(57, 255, 20, 0.45)",
+            background: "var(--color-bg-glass)",
+            borderColor: "var(--color-border-subtle)",
             color: "var(--color-accent)",
-            textShadow: "0 0 10px rgba(57, 255, 20, 0.45)",
             boxShadow:
-              "0 0 20px rgba(57, 255, 20, 0.18), 0 8px 24px rgba(0, 0, 0, 0.65)",
+              "0 4px 16px var(--color-card-shadow), 0 0 10px var(--color-glow)",
           }}
         >
-          {/* Glowing neon green LED dot */}
+          {/* Glowing accent LED dot */}
           <span
             className="w-1.5 h-1.5 rounded-full shrink-0"
             style={{
@@ -306,7 +259,7 @@ function ProfileImage() {
             className="shrink-0"
             style={{
               color: "var(--color-accent)",
-              filter: "drop-shadow(0 0 4px rgba(57,255,20,0.5))",
+              filter: "drop-shadow(0 0 4px rgba(0, 240, 255, 0.5))",
             }}
             aria-hidden="true"
           />
@@ -395,7 +348,7 @@ function FadeUp({
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.65, delay, ease: "easeOut" }}
+      transition={{ duration: 0.65, delay, ease: [0.16, 1, 0.3, 1] }}
       className={className}
       style={style}
     >
@@ -410,8 +363,7 @@ export function Hero() {
     <section
       id="home"
       aria-label="Hero section"
-      className="relative min-h-screen flex flex-col justify-start lg:justify-center overflow-x-hidden hero-section"
-      style={{ background: "var(--color-bg-primary)" }}
+      className="relative min-h-screen flex flex-col justify-start lg:justify-center overflow-x-hidden hero-section bg-transparent"
     >
       <AIGrid />
 
@@ -421,14 +373,14 @@ export function Hero() {
           {/* ── Left: Text Content (7 cols) ── */}
           <div className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start">
 
-            {/* Live Status Pill */}
-            <FadeUp delay={0} className="mb-3.5 sm:mb-5">
+            {/* Live Status Pill (Terminal Monospace) */}
+            <FadeUp delay={0} className="mb-4 sm:mb-6">
               <div
-                className="inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-3.5 py-1.5 rounded-full border text-[10px] sm:text-xs font-mono tracking-wide backdrop-blur-md"
+                className="inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-full border text-[10px] sm:text-xs font-mono tracking-wide backdrop-blur-md"
                 style={{
-                  background: "rgba(57, 255, 20, 0.05)",
-                  borderColor: "rgba(57, 255, 20, 0.25)",
-                  boxShadow: "0 0 20px rgba(57, 255, 20, 0.08)",
+                  background: "rgba(0, 240, 255, 0.05)",
+                  borderColor: "rgba(0, 240, 255, 0.28)",
+                  boxShadow: "0 0 20px rgba(0, 240, 255, 0.1)",
                 }}
               >
                 <span className="relative flex h-2 w-2 shrink-0">
@@ -438,7 +390,7 @@ export function Hero() {
                   />
                   <span
                     className="relative inline-flex rounded-full h-2 w-2"
-                    style={{ background: "var(--color-accent)" }}
+                    style={{ background: "var(--color-accent)", boxShadow: "0 0 6px var(--color-accent)" }}
                   />
                 </span>
                 <span className="uppercase tracking-wider font-bold" style={{ color: "var(--color-accent)" }}>
@@ -451,12 +403,12 @@ export function Hero() {
               </div>
             </FadeUp>
 
-            {/* Main Headline */}
-            <FadeUp delay={0.1} className="mb-3 sm:mb-4">
+            {/* Main Headline (Clean Sans-Serif Inter) */}
+            <FadeUp delay={0.1} className="mb-4 sm:mb-6">
               <h1
-                className="font-display font-bold leading-[1.08] tracking-tight text-center lg:text-left"
+                className="font-sans font-extrabold leading-[1.08] tracking-tight text-center lg:text-left"
                 style={{
-                  fontSize: "clamp(2.2rem, 6.2vw, 4.6rem)",
+                  fontSize: "clamp(2.4rem, 6.4vw, 4.8rem)",
                   color: "var(--color-text-primary)",
                 }}
               >
@@ -465,16 +417,16 @@ export function Hero() {
               </h1>
             </FadeUp>
 
-            {/* Animated Dynamic Role Badge / Terminal display */}
-            <FadeUp delay={0.2} className="mb-4 sm:mb-6 w-full flex justify-center lg:justify-start">
+            {/* Animated Dynamic Role Badge / Terminal display (JetBrains Mono) */}
+            <FadeUp delay={0.2} className="mb-5 sm:mb-7 w-full flex justify-center lg:justify-start">
               <div
-                className="inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-3.5 py-1.5 rounded-xl border text-xs sm:text-base font-mono backdrop-blur-sm max-w-full"
+                className="inline-flex items-center gap-2.5 sm:gap-3 px-4 py-2 rounded-xl border text-xs sm:text-base font-mono backdrop-blur-sm max-w-full"
                 style={{
-                  background: "rgba(255, 255, 255, 0.025)",
-                  borderColor: "rgba(255, 255, 255, 0.09)",
+                  background: "var(--color-bg-card)",
+                  borderColor: "var(--color-border-subtle)",
                 }}
               >
-                <Terminal size={14} className="shrink-0" style={{ color: "var(--color-accent)" }} aria-hidden="true" />
+                <Terminal size={15} className="shrink-0" style={{ color: "var(--color-accent)" }} aria-hidden="true" />
                 <span className="text-[11px] sm:text-xs uppercase tracking-wider font-semibold shrink-0" style={{ color: "var(--color-text-muted)" }}>
                   Focus:
                 </span>
@@ -488,217 +440,57 @@ export function Hero() {
               </div>
             </FadeUp>
 
-            {/* Tagline / Bio Description */}
-            <FadeUp delay={0.3} className="mb-6 sm:mb-8">
+            {/* Tagline / Bio Description (Theme-adaptive secondary text) */}
+            <FadeUp delay={0.3} className="mb-7 sm:mb-9">
               <p
-                className="leading-relaxed max-w-xl text-[14px] sm:text-base md:text-lg text-[var(--color-text-secondary)] px-2 sm:px-0"
+                className="leading-relaxed max-w-xl text-[14px] sm:text-base md:text-lg text-[var(--color-text-secondary)] px-2 sm:px-0 font-sans"
               >
                 {personalInfo.tagline}
               </p>
             </FadeUp>
 
-            {/* ── Primary & Secondary Action Dock ── */}
-            <FadeUp delay={0.4} className="w-full mb-8 sm:mb-12">
-              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-3.5 justify-center lg:justify-start w-full sm:w-auto">
+            {/* ── Primary & Secondary Differentiated Action CTAs ── */}
+            <FadeUp delay={0.4} className="w-full">
+              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center lg:justify-start w-full sm:w-auto">
+                {/* Primary CTA: Solid Electric Cyan Button */}
                 <a
                   href="#projects"
                   onClick={(e) => {
                     e.preventDefault();
                     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="hero-action-btn group relative cursor-pointer w-full sm:w-auto max-w-[320px] sm:max-w-none"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    textAlign: "center",
-                    gap: "10px",
-                    padding: "14px 28px",
-                    minHeight: "48px",
-                    lineHeight: 1,
-                    borderRadius: "12px",
-                    whiteSpace: "nowrap",
-                    boxSizing: "border-box",
-                    background: "var(--color-accent)",
-                    color: "#050505",
-                    fontWeight: 700,
-                    fontSize: "14px",
-                    boxShadow: "0 4px 20px rgba(57, 255, 20, 0.25)",
-                    transition: "all 0.3s ease",
-                  }}
+                  className="btn-primary hero-action-btn group cursor-pointer w-full sm:w-auto max-w-[320px] sm:max-w-none"
                   aria-label="Explore my projects"
                 >
                   <ArrowDown size={16} className="shrink-0 transition-transform duration-300 group-hover:translate-y-0.5" aria-hidden="true" />
-                  <span style={{ lineHeight: 1 }}>Explore Projects</span>
+                  <span>Explore Projects</span>
                 </a>
 
+                {/* Secondary Ghost CTA 1: LinkedIn */}
                 <a
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hero-action-btn group relative cursor-pointer w-full sm:w-auto max-w-[320px] sm:max-w-none"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    textAlign: "center",
-                    gap: "10px",
-                    padding: "14px 28px",
-                    minHeight: "48px",
-                    lineHeight: 1,
-                    borderRadius: "12px",
-                    whiteSpace: "nowrap",
-                    boxSizing: "border-box",
-                    background: "rgba(18, 18, 18, 0.75)",
-                    border: "1px solid rgba(255, 255, 255, 0.12)",
-                    backdropFilter: "blur(12px)",
-                    color: "var(--color-text-primary)",
-                    fontWeight: 600,
-                    fontSize: "14px",
-                    transition: "all 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "var(--color-accent)";
-                    e.currentTarget.style.color = "var(--color-accent)";
-                    e.currentTarget.style.boxShadow = "0 0 20px rgba(57, 255, 20, 0.2)";
-                    e.currentTarget.style.transform = "translateY(-2px)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.12)";
-                    e.currentTarget.style.color = "var(--color-text-primary)";
-                    e.currentTarget.style.boxShadow = "none";
-                    e.currentTarget.style.transform = "translateY(0)";
-                  }}
+                  className="btn-secondary hero-action-btn group cursor-pointer w-full sm:w-auto max-w-[320px] sm:max-w-none"
                   aria-label="Connect with Maleesha on LinkedIn (opens in new tab)"
                 >
-                  <LinkedInIcon size={16} className="shrink-0 text-[var(--color-accent)]" aria-hidden="true" />
-                  <span style={{ lineHeight: 1 }}>Connect on LinkedIn</span>
+                  <LinkedInIcon size={16} className="shrink-0 transition-colors group-hover:text-[var(--color-accent)]" aria-hidden="true" />
+                  <span>Connect on LinkedIn</span>
                 </a>
 
+                {/* Secondary Ghost CTA 2: Email */}
                 {personalInfo.gmailComposeUrl && (
                   <a
                     href={personalInfo.gmailComposeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hero-action-btn group relative cursor-pointer w-full sm:w-auto max-w-[320px] sm:max-w-none"
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      textAlign: "center",
-                      gap: "10px",
-                      padding: "14px 28px",
-                      minHeight: "48px",
-                      lineHeight: 1,
-                      borderRadius: "12px",
-                      whiteSpace: "nowrap",
-                      boxSizing: "border-box",
-                      background: "rgba(18, 18, 18, 0.75)",
-                      border: "1px solid rgba(255, 255, 255, 0.12)",
-                      backdropFilter: "blur(12px)",
-                      color: "var(--color-text-primary)",
-                      fontWeight: 600,
-                      fontSize: "14px",
-                      transition: "all 0.3s ease",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = "var(--color-accent)";
-                      e.currentTarget.style.color = "var(--color-accent)";
-                      e.currentTarget.style.boxShadow = "0 0 20px rgba(57, 255, 20, 0.2)";
-                      e.currentTarget.style.transform = "translateY(-2px)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.12)";
-                      e.currentTarget.style.color = "var(--color-text-primary)";
-                      e.currentTarget.style.boxShadow = "none";
-                      e.currentTarget.style.transform = "translateY(0)";
-                    }}
+                    className="btn-secondary hero-action-btn group cursor-pointer w-full sm:w-auto max-w-[320px] sm:max-w-none"
                     aria-label="Open Gmail to compose email to Maleesha (opens in new tab)"
                   >
-                    <Mail size={16} className="shrink-0 text-[var(--color-accent)]" aria-hidden="true" />
-                    <span style={{ lineHeight: 1 }}>Email Me</span>
+                    <Mail size={16} className="shrink-0 transition-colors group-hover:text-[var(--color-accent)]" aria-hidden="true" />
+                    <span>Email Me</span>
                   </a>
                 )}
-              </div>
-            </FadeUp>
-
-            {/* ── Academic Profile & Key Metrics Panel (Clearly Separated) ── */}
-            <FadeUp delay={0.5} className="w-full pt-7" style={{ borderTop: "1px solid rgba(255, 255, 255, 0.09)" }}>
-              {/* Eyebrow label so it clearly reads as informational data, not more buttons */}
-              <div className="flex items-center gap-2 mb-3 text-[11px] font-mono uppercase tracking-wider text-[var(--color-text-muted)] justify-center lg:justify-start">
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] opacity-80" />
-                <span>Academic Profile &amp; Timeline</span>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full">
-                {[
-                  {
-                    icon: Building2,
-                    label: "Institution",
-                    value: personalInfo.universityShort,
-                    sub: "Faculty of Computing",
-                  },
-                  {
-                    icon: GraduationCap,
-                    label: "Degree Program",
-                    value: "BSc (Hons) IT",
-                    sub: "AI Specialization",
-                    highlight: true,
-                  },
-                  {
-                    icon: Sparkles,
-                    label: "Current Level",
-                    value: personalInfo.currentYear.split(" ")[0] + " " + personalInfo.currentYear.split(" ")[1],
-                    sub: "Undergraduate",
-                  },
-                  {
-                    icon: Calendar,
-                    label: "Graduation",
-                    value: personalInfo.graduationYear.toString(),
-                    sub: "Class of " + personalInfo.graduationYear,
-                  },
-                ].map((stat) => {
-                  const Icon = stat.icon;
-                  return (
-                    <div
-                      key={stat.label}
-                      className="p-3 sm:p-3.5 rounded-xl border text-left transition-all duration-300 hover:translate-y-[-2px] group relative overflow-hidden cursor-default"
-                      style={{
-                        background: "rgba(255, 255, 255, 0.02)",
-                        borderColor: "rgba(255, 255, 255, 0.08)",
-                      }}
-                      onMouseEnter={(e) => {
-                        const el = e.currentTarget;
-                        el.style.borderColor = "var(--color-border-strong)";
-                        el.style.background = "rgba(57, 255, 20, 0.04)";
-                        el.style.boxShadow = "0 8px 24px rgba(57, 255, 20, 0.08)";
-                      }}
-                      onMouseLeave={(e) => {
-                        const el = e.currentTarget;
-                        el.style.borderColor = "rgba(255, 255, 255, 0.08)";
-                        el.style.background = "rgba(255, 255, 255, 0.02)";
-                        el.style.boxShadow = "none";
-                      }}
-                    >
-                      <div className="flex items-center gap-1.5 mb-1.5">
-                        <Icon size={13} className="text-[var(--color-accent)] opacity-80" aria-hidden="true" />
-                        <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--color-text-muted)]">
-                          {stat.label}
-                        </span>
-                      </div>
-                      <div className="font-display font-bold text-sm sm:text-base text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors">
-                        {stat.value}
-                      </div>
-                      <div
-                        className="text-[10px] mt-0.5 truncate font-medium"
-                        style={{
-                          color: stat.highlight ? "var(--color-accent)" : "var(--color-text-muted)",
-                        }}
-                      >
-                        {stat.sub}
-                      </div>
-                    </div>
-                  );
-                })}
               </div>
             </FadeUp>
           </div>
@@ -707,12 +499,104 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.85, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.85, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 flex justify-center pt-6 sm:pt-4 lg:pt-0"
           >
             <ProfileImage />
           </motion.div>
         </div>
+
+        {/* ── Tier 2: Academic Profile & Milestones Ribbon (Full-Width Dashboard) ── */}
+        <FadeUp delay={0.5} className="w-full mt-14 sm:mt-16 lg:mt-20 pt-8 sm:pt-10 border-t border-[var(--color-border-subtle)]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 sm:mb-8">
+            <div className="flex items-center gap-2.5 sm:gap-3">
+              <span className="relative flex h-2.5 w-2.5 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-accent)] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--color-accent)] shadow-[0_0_8px_var(--color-accent)]" />
+              </span>
+              <h2 className="font-sans font-bold text-lg sm:text-xl md:text-2xl text-[var(--color-text-primary)] tracking-tight">
+                Academic Profile &amp; Timeline
+              </h2>
+            </div>
+            <span className="text-xs font-mono px-3.5 py-1.5 rounded-full bg-[var(--color-accent-dim)] border border-[var(--color-border-strong)] text-[var(--color-accent)] font-semibold inline-flex items-center gap-2 self-start sm:self-auto">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
+              SLIIT Undergraduate
+            </span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 w-full">
+            {[
+              {
+                icon: Building2,
+                label: "Institution",
+                badge: "Computing",
+                value: "SLIIT",
+                sub: "Faculty of Computing",
+              },
+              {
+                icon: GraduationCap,
+                label: "Degree Program",
+                badge: "Honors",
+                value: "BSc (Hons) in IT",
+                sub: "AI Specialization",
+                highlight: true,
+              },
+              {
+                icon: Sparkles,
+                label: "Current Level",
+                badge: "Year 3",
+                value: "3rd Year Undergraduate",
+                sub: "AI & ML Specialization",
+              },
+              {
+                icon: Calendar,
+                label: "Graduation Target",
+                badge: "Class of 2028",
+                value: "2024 — 2028",
+                sub: "4-Year Honors Degree",
+              },
+            ].map((stat) => {
+              const Icon = stat.icon;
+              return (
+                <div
+                  key={stat.label}
+                  className="p-4 sm:p-5 rounded-2xl border text-left transition-all duration-300 hover:translate-y-[-3px] group relative overflow-hidden cursor-default card-box hover:border-[var(--color-accent)] hover:shadow-[0_8px_24px_var(--color-glow)] flex flex-col justify-between gap-2.5"
+                >
+                  {/* Top Header: Icon + Category Label + Badge Pill */}
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <div className="w-7 h-7 rounded-lg flex items-center justify-center bg-[var(--color-accent-dim)] border border-[var(--color-border-strong)] text-[var(--color-accent)] shrink-0">
+                        <Icon size={14} aria-hidden="true" />
+                      </div>
+                      <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--color-text-muted)] font-medium">
+                        {stat.label}
+                      </span>
+                    </div>
+                    {stat.badge && (
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[var(--color-bg-pill)] border border-[var(--color-border-subtle)] text-[var(--color-text-muted)] group-hover:border-[var(--color-accent)]/40 group-hover:text-[var(--color-accent)] transition-colors shrink-0">
+                        {stat.badge}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Middle: Prominent Value */}
+                  <div className="font-sans font-bold text-base sm:text-lg text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors leading-snug">
+                    {stat.value}
+                  </div>
+
+                  {/* Bottom: Subtitle with optional highlight dot */}
+                  <div className="text-xs font-medium text-[var(--color-text-secondary)] flex items-center gap-1.5">
+                    {stat.highlight && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] shadow-[0_0_6px_var(--color-accent)] shrink-0" />
+                    )}
+                    <span style={{ color: stat.highlight ? "var(--color-accent)" : undefined }}>
+                      {stat.sub}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </FadeUp>
       </div>
     </section>
   );
