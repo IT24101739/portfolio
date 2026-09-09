@@ -1,8 +1,7 @@
 "use client";
 
-import { GraduationCap, Brain, Code2, Lightbulb, BookOpen, Compass } from "lucide-react";
+import { Brain, Code2, Lightbulb } from "lucide-react";
 import { SectionReveal } from "./section-reveal";
-import { personalInfo } from "@/data/personal";
 
 const highlights = [
   {
@@ -23,15 +22,6 @@ const highlights = [
     description:
       "Constantly exploring emerging AI research, novel frameworks, and applying cutting-edge ideas to solve real-world technical problems.",
   },
-];
-
-const academicDetails = [
-  { label: "Current Level", value: personalInfo.currentYear },
-  { label: "Degree Program", value: personalInfo.degree },
-  { label: "Specialization", value: personalInfo.specialization },
-  { label: "Institution", value: personalInfo.university },
-  { label: "Campus Location", value: "Malabe, Sri Lanka" },
-  { label: "Study Period", value: `${personalInfo.startYear} — ${personalInfo.graduationYear}` },
 ];
 
 export function About() {
@@ -69,173 +59,71 @@ export function About() {
           </p>
         </SectionReveal>
 
-        {/* Main 2-Column Content Grid */}
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-
-          {/* Left Column: Bio & Core Pillars (7 cols) */}
-          <div className="lg:col-span-7 flex flex-col gap-8">
-            <SectionReveal delay={0.1}>
-              <div className="space-y-5 text-base md:text-lg leading-relaxed text-[var(--color-text-secondary)] font-sans">
-                <p>
-                  I&apos;m <strong style={{ color: "var(--color-text-primary)", fontWeight: 600 }}>Maleesha Vimukthi Sanjula Maddegoda</strong>, a
-                  third-year undergraduate at the{" "}
-                  <strong style={{ color: "var(--color-accent)", fontWeight: 600 }}>
-                    Sri Lanka Institute of Information Technology (SLIIT)
-                  </strong>
-                  , specializing in Artificial Intelligence under the BSc (Hons) in Information
-                  Technology program.
-                </p>
-                <p>
-                  My engineering journey is centered on bridging the gap between theoretical
-                  machine learning concepts and scalable, production-ready software systems. Whether
-                  designing convolutional neural networks for computer vision or architecting reactive
-                  Next.js web applications, I focus on clean code, solid data structures, and measurable impact.
-                </p>
-                <p>
-                  I believe the most compelling technology emerges at the intersection of deep
-                  algorithmic curiosity and thoughtful software craftsmanship.
-                </p>
-              </div>
-            </SectionReveal>
-
-            {/* Core Capability Pillars */}
-            <div className="space-y-4 pt-2">
-              <SectionReveal delay={0.15}>
-                <h3
-                  className="font-mono font-semibold text-xs uppercase tracking-wider mb-2"
-                  style={{ color: "var(--color-text-muted)" }}
-                >
-                  Core Strengths &amp; Focus
-                </h3>
-              </SectionReveal>
-
-              {highlights.map((item, i) => (
-                <SectionReveal key={item.title} delay={0.2 + i * 0.08}>
-                  <div className="card-box flex gap-5 items-start">
-                    <div
-                      className="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center"
-                      style={{
-                        background: "var(--color-accent-dim)",
-                        border: "1px solid var(--color-border)",
-                      }}
-                      aria-hidden="true"
-                    >
-                      <item.icon size={20} style={{ color: "var(--color-accent)" }} />
-                    </div>
-                    <div>
-                      <h4
-                        className="text-base font-semibold mb-1 font-sans"
-                        style={{ color: "var(--color-text-primary)" }}
-                      >
-                        {item.title}
-                      </h4>
-                      <p className="text-sm leading-relaxed text-[var(--color-text-secondary)] font-sans">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </SectionReveal>
-              ))}
-            </div>
+        {/* Narrative Bio */}
+        <SectionReveal delay={0.1} className="max-w-4xl mx-auto mb-12 sm:mb-16">
+          <div className="card-box p-6 sm:p-8 md:p-10 space-y-5 text-base md:text-lg leading-relaxed text-[var(--color-text-secondary)] font-sans">
+            <p>
+              I&apos;m <strong style={{ color: "var(--color-text-primary)", fontWeight: 600 }}>Maleesha Vimukthi Sanjula Maddegoda</strong>, a
+              third-year undergraduate at the{" "}
+              <strong style={{ color: "var(--color-accent)", fontWeight: 600 }}>
+                Sri Lanka Institute of Information Technology (SLIIT)
+              </strong>
+              , specializing in Artificial Intelligence under the BSc (Hons) in Information
+              Technology program.
+            </p>
+            <p>
+              My engineering journey is centered on bridging the gap between theoretical
+              machine learning concepts and scalable, production-ready software systems. Whether
+              designing convolutional neural networks for computer vision or architecting reactive
+              Next.js web applications, I focus on clean code, solid data structures, and measurable impact.
+            </p>
+            <p>
+              I believe the most compelling technology emerges at the intersection of deep
+              algorithmic curiosity and thoughtful software craftsmanship.
+            </p>
           </div>
+        </SectionReveal>
 
-          {/* Right Column: Academic Details & Progress (5 cols) */}
-          <div className="lg:col-span-5 flex flex-col gap-6">
+        {/* Core Capability Pillars - 3 column responsive cards */}
+        <div className="space-y-6">
+          <SectionReveal delay={0.15}>
+            <div className="text-center">
+              <h3
+                className="font-mono font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2"
+                style={{ color: "var(--color-text-muted)" }}
+              >
+                Core Strengths &amp; Engineering Focus
+              </h3>
+            </div>
+          </SectionReveal>
 
-            {/* Currently Card */}
-            <SectionReveal delay={0.15}>
-              <div className="card-box space-y-6">
-                <div className="flex items-center gap-3 pb-4 border-b border-[var(--color-border)]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+            {highlights.map((item, i) => (
+              <SectionReveal key={item.title} delay={0.2 + i * 0.08} className="h-full">
+                <div className="card-box h-full p-6 sm:p-7 flex flex-col items-start gap-4 transition-all duration-300 hover:translate-y-[-3px] hover:border-[var(--color-accent)] hover:shadow-[0_8px_24px_var(--color-glow)] group">
                   <div
-                    className="w-9 h-9 rounded-lg flex items-center justify-center"
-                    style={{ background: "var(--color-accent-dim)" }}
+                    className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110"
+                    style={{
+                      background: "var(--color-accent-dim)",
+                      border: "1px solid var(--color-border-strong)",
+                    }}
                     aria-hidden="true"
                   >
-                    <BookOpen size={18} style={{ color: "var(--color-accent)" }} />
+                    <item.icon size={22} style={{ color: "var(--color-accent)" }} />
                   </div>
                   <div>
-                    <h3 className="font-sans font-bold text-base" style={{ color: "var(--color-text-primary)" }}>
-                      Academic Snapshot
-                    </h3>
-                    <p className="text-xs font-mono" style={{ color: "var(--color-accent)" }}>
-                      SLIIT AI Specialization
+                    <h4
+                      className="text-base sm:text-lg font-semibold mb-2 font-sans text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors"
+                    >
+                      {item.title}
+                    </h4>
+                    <p className="text-sm leading-relaxed text-[var(--color-text-secondary)] font-sans">
+                      {item.description}
                     </p>
                   </div>
                 </div>
-
-                <div className="space-y-4">
-                  {academicDetails.map((detail) => (
-                    <div key={detail.label} className="flex flex-col gap-0.5">
-                      <span className="text-xs uppercase tracking-wider font-mono font-semibold" style={{ color: "var(--color-text-muted)" }}>
-                        {detail.label}
-                      </span>
-                      <span className="text-sm font-medium font-sans" style={{ color: "var(--color-text-primary)" }}>
-                        {detail.value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </SectionReveal>
-
-            {/* Degree Progress Card */}
-            <SectionReveal delay={0.25}>
-              <div className="card-box space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2.5">
-                    <GraduationCap size={18} style={{ color: "var(--color-accent)" }} aria-hidden="true" />
-                    <span className="font-sans font-bold text-sm" style={{ color: "var(--color-text-primary)" }}>
-                      Undergraduate Progress
-                    </span>
-                  </div>
-                  <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-md" style={{ background: "var(--color-accent-dim)", color: "var(--color-accent)" }}>
-                    Year 3 of 4 · 75%
-                  </span>
-                </div>
-
-                {/* Progress bar */}
-                <div
-                  className="h-2 rounded-full overflow-hidden"
-                  style={{ background: "rgba(255,255,255,0.06)" }}
-                  role="progressbar"
-                  aria-valuenow={75}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  aria-label="Undergraduate degree completion: 75%"
-                >
-                  <div
-                    className="h-full rounded-full transition-all duration-1000"
-                    style={{
-                      width: "75%",
-                      background: "linear-gradient(90deg, #00F0FF, #A855F7)",
-                      boxShadow: "0 0 10px var(--color-accent-glow)",
-                    }}
-                  />
-                </div>
-
-                <div className="flex justify-between text-xs font-mono" style={{ color: "var(--color-text-muted)" }}>
-                  <span>2024 (Commenced)</span>
-                  <span>2028 (Expected Graduation)</span>
-                </div>
-              </div>
-            </SectionReveal>
-
-            {/* Career Direction & Collaboration Card */}
-            <SectionReveal delay={0.3}>
-              <div className="card-box space-y-3">
-                <div className="flex items-center gap-2.5">
-                  <Compass size={18} style={{ color: "var(--color-accent)" }} aria-hidden="true" />
-                  <h3 className="font-sans font-bold text-sm" style={{ color: "var(--color-text-primary)" }}>
-                    Career Objective
-                  </h3>
-                </div>
-                <p className="text-sm leading-relaxed text-[var(--color-text-secondary)] font-sans">
-                  Seeking to contribute to forward-thinking AI/ML teams, applied research laboratories,
-                  and software engineering groups — solving complex problems with scalable, responsible intelligence.
-                </p>
-              </div>
-            </SectionReveal>
-
+              </SectionReveal>
+            ))}
           </div>
         </div>
       </div>
